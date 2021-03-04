@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html><head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Ubuntu - Vielog</title><meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta property="og:image" content=""/>
+	<meta property="og:title" content="Ubuntu" />
+<meta property="og:description" content="install and config ubuntu on inspiron 7590" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="vieloooo.github.com/posts/ubuntu/" />
+<meta property="article:published_time" content="2020-11-23T21:30:32+08:00" />
+<meta property="article:modified_time" content="2020-11-23T21:30:32+08:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Ubuntu"/>
+<meta name="twitter:description" content="install and config ubuntu on inspiron 7590"/>
+<script src="vieloooo.github.comjs/feather.min.js"></script>
+	
+	<link href="vieloooo.github.comcss/fonts.css" rel="stylesheet">
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="vieloooo.github.comcss/main.css" />
+	
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+	
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="vieloooo.github.com">Vielog</a>
+	</div>
+	<nav>
+		
+		<a href="vieloooo.github.com/posts">All posts</a>
+		
+		<a href="vieloooo.github.com/authors/about">About</a>
+		
+		<a href="vieloooo.github.com/gallery/moments">Gallery</a>
+		
+		<a href="vieloooo.github.com/tags">Tags</a>
+		
+	</nav>
+</header>
+
+<main>
+	<article>
+		<div class="title">
+			<h1 class="title">Ubuntu</h1>
+			<div class="meta">Created on Nov 23, 2020</div>
+		</div>
+		
+
+		<section class="body">
+			<h2 id="outline">outline</h2>
+<ol>
+<li>硬件准备</li>
+<li>clash on linux</li>
+<li>开发环境搭建</li>
+</ol>
+<h3 id="硬件准备">硬件准备</h3>
+<ol>
+<li>灵越 7590 ， windows 系统盘 ssd + sn750 空盘</li>
+<li>bios 中，把硬盘模式调到achi ， 关闭security boot ，关闭 windows 快速启动，打开legency boot</li>
+<li>插入ssd，windows中初始化硬盘，不分区</li>
+<li>制作iso启动盘</li>
+<li>进入bios，打开boot sequence ，把usb/boot//grub.efi加入boot 列表</li>
+<li>f12， 引导选择，清空ssd sn750 ， 安装ubuntu</li>
+</ol>
+<h3 id="clash-on-linux-搭建">clash on linux 搭建</h3>
+<ol>
+<li>安装git vim ，解决raw.githubusercontent.com dns 污染问题（在hosts中加入ip）（更改为aliyun 的源）</li>
+<li>安装 clash on linux ，解压tar</li>
+<li>给clash 赋予对应权限</li>
+<li>启动</li>
+<li>找到.config/clash  中的config.yaml 和 country.mmdb 文件（前者为代理服务器文件，后者为ip分流文件）</li>
+<li>从服务商获得yaml文件，和mmdb文件，替换原文件</li>
+<li>clash 运行</li>
+<li>打开clash.razord.top 进入控制面板（使用chrome 不要用firefox，firefox在会出现验证障碍）</li>
+<li>把proxy 中继指向config.yaml对应端口（127.0.0.1:0000)</li>
+</ol>
+<h3 id="环境配置">环境配置</h3>
+<ol>
+<li>
+<p>zsh 配置（注意dns污染问题</p>
+</li>
+<li>
+<p>ibus 中文双拼设置</p>
+</li>
+<li>
+<p>terminator 配置</p>
+<ol>
+<li>chsh /bin/zsh  for root and userid</li>
+<li>su</li>
+<li>zshrc 配置</li>
+</ol>
+</li>
+<li>
+<p>jetbrain 全家桶</p>
+<ol>
+<li>
+<p>clion ，安装 make gcc g++</p>
+</li>
+<li>
+<p>webstorm，安装nodejs，npm</p>
+<ol>
+<li>解决（sha1 wanted but get sha512问题）</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm i -g npm
+
+cd <span style="color:#f92672">{</span>working directory<span style="color:#f92672">}</span>
+rm -rf node_modules/
+rm package-lock.json
+npm cache clear --force
+npm i
+</code></pre></div><ol start="2">
+<li>
+<p>淘宝镜像更换</p>
+</li>
+<li>
+<p>sudo 和 无sudo  用两套config</p>
+</li>
+<li>
+<p>npm config ls</p>
+</li>
+<li>
+<p>npm config set registry &ldquo;url&rdquo;</p>
+</li>
+</ol>
+</li>
+<li>
+<p>phpstorm</p>
+<ol>
+<li>jdk 安装</li>
+<li>apchace2</li>
+<li>sql</li>
+<li>path 和中断设置</li>
+</ol>
+</li>
+<li>
+<p>java</p>
+</li>
+<li>
+<p>database</p>
+</li>
+</ol>
+<h2 id="待解决">待解决</h2>
+<ol>
+<li><del>gnome 桌面设置</del></li>
+<li><del>关机时间过长</del></li>
+<li><del>字体发虚</del>
+<ol>
+<li>tweak font change</li>
+</ol>
+</li>
+<li>显卡动态管理
+<ol>
+<li>
+<p>功耗过高（10w</p>
+</li>
+<li>
+<p>显卡核显切换</p>
+</li>
+<li>
+<p>解决方法：</p>
+<ol>
+<li>在nvidia 驱动中设置，</li>
+</ol>
+<p>问题：更改后要重启电脑</p>
+</li>
+<li>
+<p><del>散热控制问题</del></p>
+<ol>
+<li>安装 i8kctl</li>
+<li>use acpi to see the battery life</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>windows manager</li>
+</ol>
+</li>
+</ol>
+
+		</section>
+
+		<div class="post-tags">
+			
+			
+			<nav class="nav tags">
+				<ul class="tags">
+					
+					<li><a href="/vieloooo.github.com/tags/forfun">forfun</a></li>
+					
+					<li><a href="/vieloooo.github.com/tags/hw">hw</a></li>
+					
+				</ul>
+			</nav>
+			
+			
+		</div>
+	</article>
+</main>
+<footer>
+<hr><a class="soc" href="https://github.com/Vieloooo" title="GitHub"><i data-feather="github"></i></a>|<a class="soc" href="https://twitter.com/wooolu/" title="Twitter"><i data-feather="twitter"></i></a>|<a class="soc" href="arordavid@gmail.com/" title="Email"><i data-feather="mail"></i></a>|<a class="soc" href="https://t.me/J6mple" title="Telegram"><i data-feather="navigation"></i></a>|不能 不明白| <a href="https://gohugo.io">Hugo</a> - <a href="https://github.com/athul/archie">archie</a>
+</footer>
+
+
+<script>
+      feather.replace()
+</script></div>
+    </body>
+</html>

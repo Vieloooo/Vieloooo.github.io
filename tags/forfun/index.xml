@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>forfun on Vielog</title>
+    <link>vieloooo.github.com/tags/forfun/</link>
+    <description>Recent content in forfun on Vielog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 23 Nov 2020 21:30:32 +0800</lastBuildDate>
+    
+	<atom:link href="vieloooo.github.com/tags/forfun/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Ubuntu</title>
+      <link>vieloooo.github.com/posts/ubuntu/</link>
+      <pubDate>Mon, 23 Nov 2020 21:30:32 +0800</pubDate>
+      
+      <guid>vieloooo.github.com/posts/ubuntu/</guid>
+      <description>outline 硬件准备 clash on linux 开发环境搭建 硬件准备 灵越 7590 ， windows 系统盘 ssd + sn750 空盘 bios 中，把硬盘模式调到achi ， 关闭security boot ，关闭 windows 快速启动，打开le</description>
+    </item>
+    
+  </channel>
+</rss>
