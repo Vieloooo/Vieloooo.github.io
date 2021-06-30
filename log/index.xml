@@ -12,11 +12,11 @@
     
     <item>
       <title></title>
-      <link>/log/log/</link>
+      <link>/log/2021-26/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/log/log/</guid>
-      <description>This is my daily log 2021.05.23  21 push ups some ielts listening and writing start to log add build script to vielog  </description>
+      <guid>/log/2021-26/</guid>
+      <description>最近学了一些什么 BC golang Merkle Tree 实现 MPT 基本内容 zero knowledge proof rust intro English trying to restore my speaking traning cultivate some test resource of ielts 课内 完成了一个简单的miniRv 汇编实验 开始单周期cpu设计实验 dev</description>
     </item>
     
   </channel>
