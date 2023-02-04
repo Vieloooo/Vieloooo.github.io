@@ -1,88 +1,54 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>/tags/operating-system/</loc>
     <lastmod>2021-10-01T10:34:07+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/posts/</loc>
     <lastmod>2021-10-01T10:34:07+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/</loc>
     <lastmod>2021-10-01T10:34:07+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/</loc>
     <lastmod>2021-10-01T10:34:07+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/xv6/</loc>
     <lastmod>2021-10-01T10:34:07+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/posts/xv6-fs/</loc>
     <lastmod>2021-10-01T10:34:07+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/authors/about/</loc>
     <lastmod>2021-03-03T22:23:29+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/authors/</loc>
     <lastmod>2021-03-03T22:23:29+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/forfun/</loc>
     <lastmod>2020-11-23T21:30:32+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/gallery/</loc>
     <lastmod>2020-11-23T21:30:32+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/hw/</loc>
     <lastmod>2020-11-23T21:30:32+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/gallery/moments/</loc>
     <lastmod>2020-11-23T21:30:32+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/posts/ubuntu/</loc>
     <lastmod>2020-11-23T21:30:32+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/illusion/</loc>
     <lastmod>2020-03-03T20:02:36+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/posts/springdream/</loc>
     <lastmod>2020-03-03T20:02:36+08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/log/2021-26/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/log/</loc>
   </url>
-  
 </urlset>
