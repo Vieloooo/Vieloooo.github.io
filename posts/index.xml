@@ -8,6 +8,18 @@
     <language>en-us</language>
     <lastBuildDate>Fri, 01 Oct 2021 10:34:07 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Ss</title>
+      <link>/posts/xv6-lab1/</link>
+      <pubDate>Fri, 01 Oct 2021 10:34:07 +0800</pubDate>
+      
+      <guid>/posts/xv6-lab1/</guid>
+      <description>MIT xv6 design from user prespective. I will use mit 6.s801 lab1 &amp;ldquo;util&amp;rdquo; as an entry to the code behind. This article will not talk much about how to do lab1, but reveal some delicate design behind the syscall lab1 use.
+ex1- sleep #easy
+This is the easiest lab in the lab1, so I will not talk about this exercise. Let&amp;rsquo;s go through the syscall sys_sleep in sysproc.c
+uint64 sys_sleep(void) { int n; uint ticks0; if(argint(0, &amp;amp;n) &amp;lt; 0) return -1; acquire(&amp;amp;tickslock); ticks0 = ticks;	// ticks is a golbal var maintained by trap  while(ticks - ticks0 &amp;lt; n){ if(myproc()-&amp;gt;killed){ release(&amp;amp;tickslock); return -1; } sleep(&amp;amp;ticks, &amp;amp;tickslock); } release(&amp;amp;tickslock); return 0; }   ticks is the global variable maintained in trap.</description>
+    </item>
+    
+    <item>
       <title>xv6 file system</title>
       <link>/posts/xv6-fs/</link>
       <pubDate>Fri, 01 Oct 2021 10:34:07 +0800</pubDate>
