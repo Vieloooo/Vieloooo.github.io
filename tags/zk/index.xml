@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>zk on Vielog</title>
+    <link>/tags/zk/</link>
+    <description>Recent content in zk on Vielog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 10 Sep 2023 10:34:07 +0800</lastBuildDate><atom:link href="/tags/zk/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何利用 zk-snark 解决 Mental Poker 问题</title>
+      <link>/posts/mental_poker/</link>
+      <pubDate>Sun, 10 Sep 2023 10:34:07 +0800</pubDate>
+      
+      <guid>/posts/mental_poker/</guid>
+      <description>最近读到了几篇很有意思的文章: 讨论的是如何解决 Mental Poker 问题. Mental poker 问题 是由 Rivest, Shamir and Adleman 三位密码学家于1979年提出 (就是 RSA 的那三位). 简单来讲, Mental Poker 问</description>
+    </item>
+    
+  </channel>
+</rss>

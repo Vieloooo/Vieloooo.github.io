@@ -6,7 +6,25 @@
     <description>Recent content on Vielog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 01 Oct 2021 10:34:07 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Sep 2023 22:23:29 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About me</title>
+      <link>/authors/about/</link>
+      <pubDate>Sun, 10 Sep 2023 22:23:29 +0800</pubDate>
+      
+      <guid>/authors/about/</guid>
+      <description> - Under maintenance ... </description>
+    </item>
+    
+    <item>
+      <title>如何利用 zk-snark 解决 Mental Poker 问题</title>
+      <link>/posts/mental_poker/</link>
+      <pubDate>Sun, 10 Sep 2023 10:34:07 +0800</pubDate>
+      
+      <guid>/posts/mental_poker/</guid>
+      <description>最近读到了几篇很有意思的文章: 讨论的是如何解决 Mental Poker 问题. Mental poker 问题 是由 Rivest, Shamir and Adleman 三位密码学家于1979年提出 (就是 RSA 的那三位). 简单来讲, Mental Poker 问</description>
+    </item>
+    
     <item>
       <title>MIT xv6 design from user prespective</title>
       <link>/posts/xv6-lab1/</link>
@@ -16,7 +34,7 @@
       <description>I will use mit 6.s801 lab1 &amp;ldquo;util&amp;rdquo; as an entry to the code behind. This article will not talk much about how to do lab1, but reveal some delicate design behind the syscall lab1 use.
 ex1- sleep #easy
 This is the easiest lab in the lab1, so I will not talk about this exercise. Let&amp;rsquo;s go through the syscall sys_sleep in sysproc.c
-uint64 sys_sleep(void) { int n; uint ticks0; if(argint(0, &amp;amp;n) &amp;lt; 0) return -1; acquire(&amp;amp;tickslock); ticks0 = ticks;	// ticks is a golbal var maintained by trap  while(ticks - ticks0 &amp;lt; n){ if(myproc()-&amp;gt;killed){ release(&amp;amp;tickslock); return -1; } sleep(&amp;amp;ticks, &amp;amp;tickslock); } release(&amp;amp;tickslock); return 0; }   ticks is the global variable maintained in trap.</description>
+uint64 sys_sleep(void) { int n; uint ticks0; if(argint(0, &amp;amp;n) &amp;lt; 0) return -1; acquire(&amp;amp;tickslock); ticks0 = ticks;	// ticks is a golbal var maintained by trap while(ticks - ticks0 &amp;lt; n){ if(myproc()-&amp;gt;killed){ release(&amp;amp;tickslock); return -1; } sleep(&amp;amp;ticks, &amp;amp;tickslock); } release(&amp;amp;tickslock); return 0; } ticks is the global variable maintained in trap.</description>
     </item>
     
     <item>
@@ -25,17 +43,8 @@ uint64 sys_sleep(void) { int n; uint ticks0; if(argint(0, &amp;amp;n) &amp;lt; 0
       <pubDate>Fri, 01 Oct 2021 10:34:07 +0800</pubDate>
       
       <guid>/posts/xv6-fs/</guid>
-      <description>xv6 File system overview In general, There are 3 different ascpect on unix-like file system, file descriptor, file/directory and block. In xv6, they are distributed into 7 layers:  Block interface The xv file system&amp;rsquo;s block interface consists of 34 layers(disk, buffer cache , logging and bitmap) Goal: achieve crash recovery
+      <description>xv6 File system overview In general, There are 3 different ascpect on unix-like file system, file descriptor, file/directory and block. In xv6, they are distributed into 7 layers: Block interface The xv file system&amp;rsquo;s block interface consists of 34 layers(disk, buffer cache , logging and bitmap) Goal: achieve crash recovery
 Disk Disk is the most primitive layer of fs, which provide directly block R/W in device. Buffer cache This layer maintains a LRU Buffer queue to cache block data on disk, providing</description>
-    </item>
-    
-    <item>
-      <title>About me</title>
-      <link>/authors/about/</link>
-      <pubDate>Wed, 03 Mar 2021 22:23:29 +0800</pubDate>
-      
-      <guid>/authors/about/</guid>
-      <description>   A learner Might be a creator A man trying to control himself contact me below:  </description>
     </item>
     
     <item>

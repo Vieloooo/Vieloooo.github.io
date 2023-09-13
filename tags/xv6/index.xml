@@ -13,7 +13,7 @@
       <pubDate>Fri, 01 Oct 2021 10:34:07 +0800</pubDate>
       
       <guid>/posts/xv6-fs/</guid>
-      <description>xv6 File system overview In general, There are 3 different ascpect on unix-like file system, file descriptor, file/directory and block. In xv6, they are distributed into 7 layers:  Block interface The xv file system&amp;rsquo;s block interface consists of 34 layers(disk, buffer cache , logging and bitmap) Goal: achieve crash recovery
+      <description>xv6 File system overview In general, There are 3 different ascpect on unix-like file system, file descriptor, file/directory and block. In xv6, they are distributed into 7 layers: Block interface The xv file system&amp;rsquo;s block interface consists of 34 layers(disk, buffer cache , logging and bitmap) Goal: achieve crash recovery
 Disk Disk is the most primitive layer of fs, which provide directly block R/W in device. Buffer cache This layer maintains a LRU Buffer queue to cache block data on disk, providing</description>
     </item>
     

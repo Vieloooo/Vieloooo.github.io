@@ -2,19 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/authors/about/</loc>
+    <lastmod>2023-09-10T22:23:29+08:00</lastmod>
+  </url><url>
+    <loc>/authors/</loc>
+    <lastmod>2023-09-10T22:23:29+08:00</lastmod>
+  </url><url>
+    <loc>/</loc>
+    <lastmod>2023-09-10T22:23:29+08:00</lastmod>
+  </url><url>
+    <loc>/posts/</loc>
+    <lastmod>2023-09-10T10:34:07+08:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2023-09-10T10:34:07+08:00</lastmod>
+  </url><url>
+    <loc>/tags/zk/</loc>
+    <lastmod>2023-09-10T10:34:07+08:00</lastmod>
+  </url><url>
+    <loc>/posts/mental_poker/</loc>
+    <lastmod>2023-09-10T10:34:07+08:00</lastmod>
+  </url><url>
     <loc>/posts/xv6-lab1/</loc>
     <lastmod>2021-10-01T10:34:07+08:00</lastmod>
   </url><url>
     <loc>/tags/operating-system/</loc>
-    <lastmod>2021-10-01T10:34:07+08:00</lastmod>
-  </url><url>
-    <loc>/posts/</loc>
-    <lastmod>2021-10-01T10:34:07+08:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
-    <lastmod>2021-10-01T10:34:07+08:00</lastmod>
-  </url><url>
-    <loc>/</loc>
     <lastmod>2021-10-01T10:34:07+08:00</lastmod>
   </url><url>
     <loc>/tags/xv6/</loc>
@@ -22,12 +34,6 @@
   </url><url>
     <loc>/posts/xv6-fs/</loc>
     <lastmod>2021-10-01T10:34:07+08:00</lastmod>
-  </url><url>
-    <loc>/authors/about/</loc>
-    <lastmod>2021-03-03T22:23:29+08:00</lastmod>
-  </url><url>
-    <loc>/authors/</loc>
-    <lastmod>2021-03-03T22:23:29+08:00</lastmod>
   </url><url>
     <loc>/tags/forfun/</loc>
     <lastmod>2020-11-23T21:30:32+08:00</lastmod>

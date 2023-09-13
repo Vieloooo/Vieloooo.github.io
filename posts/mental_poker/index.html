@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html><head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>如何利用 zk-snark 解决 Mental Poker 问题 - Vielog</title><meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta property="og:image" content=""/>
+	<meta property="og:title" content="如何利用 zk-snark 解决 Mental Poker 问题" />
+<meta property="og:description" content="Solving Mental Poker Problems using Modern zk-SNARK Proofs" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/mental_poker/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-09-10T10:34:07+08:00" />
+<meta property="article:modified_time" content="2023-09-10T10:34:07+08:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="如何利用 zk-snark 解决 Mental Poker 问题"/>
+<meta name="twitter:description" content="Solving Mental Poker Problems using Modern zk-SNARK Proofs"/>
+<script src="/js/feather.min.js"></script>
+	
+	<link href="/css/fonts.css" rel="stylesheet">
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+	
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+	
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="/">Vielog</a>
+	</div>
+	<nav>
+		
+		<a href="/posts">All posts</a>
+		
+		<a href="/authors/about">About</a>
+		
+		<a href="/tags">Tags</a>
+		
+		<a href="/gallery/moments">Gallery</a>
+		
+	</nav>
+</header>
+
+<main>
+	<article>
+		<div class="title">
+			<h1 class="title">如何利用 zk-snark 解决 Mental Poker 问题</h1>
+			<div class="meta">Created on Sep 10, 2023</div>
+		</div>
+		
+
+		<section class="body">
+			<p>最近读到了几篇很有意思的文章: 讨论的是如何解决 Mental Poker 问题.</p>
+<blockquote>
+<p><a href="https://en.wikipedia.org/wiki/Mental_poker">Mental poker 问题</a> 是由 Rivest, Shamir and Adleman 三位密码学家于1979年提出 (就是 RSA 的那三位). 简单来讲, Mental Poker 问题可以理解为是在没有 &ldquo;性感荷官&rdquo; (一个 private 可信的第三方) 的场景下,进行扑克游戏. 下面的讨论我们将默认该 poker 游戏使用德州扑克的规则.</p>
+</blockquote>
+<h2 id="如何利用证明机制解决-mental-poker-问题">如何利用证明机制解决 Mental Poker 问题?</h2>
+<p><a href="https://geometry.xyz/about">Geometry Research</a> 基于论文 <a href="https://www.semanticscholar.org/paper/Mental-Poker-Revisited-Barnett-Smart/8aaa1245c5876c78564c3f2df36ca615686d1402">Mental Poker Revisited(Barnett and Smart, 2003)</a> 中的协议, 提出了一个更为现代的解决方案[1]. 下文将形象的展示该方案是如何实现的.</p>
+<h3 id="step-one-setup-阶段-完成密码学相关设置">Step One. Setup 阶段: 完成密码学相关设置</h3>
+<p><img src="/images/zk/mental_poker/setup_key.png" alt="Setup keys"></p>
+<ul>
+<li>每位玩家 <code>i</code> 生成自己的 公钥 <code>pk_i</code>, 私钥 <code>sk_i</code>, 所有 <code>pk_i</code> 聚合成一个 n-n 多签的 <code>master_pk</code>.</li>
+<li>所有玩家达成一个共识, 聚合产生一个公共的随机数 <code>master_rand</code></li>
+<li>每位玩家 <code>i</code> 要发布一个证明, 证明对于用于聚合 <code>master_pk</code> 的 <code>pk_i</code>, 玩家 <code>i</code> 拥有相对应的 <code>sk_i</code> (Prove You Know Your Private Key). 该证明是用来防止恶意玩家发动 DoS attacks 和 <a href="https://www.iacr.org/archive/eurocrypt2007/45150228/45150228.pdf">Rogue Key attacks</a></li>
+<li>设置一个 public verifiable 的打乱函数<code>Shuffle(list[], shuffle_nounce) -&gt; shuffled_list[])</code>, 该函数将根据 <code>shuffle nounce</code> 随机打乱一个有序列.</li>
+</ul>
+<h3 id="step-two-mask-阶段-把牌翻过来">Step Two. Mask 阶段: 把牌翻过来</h3>
+<p>把扑克中 52 张牌(每一个牌面值为 <code>m_i</code>), 用 <code>master_pk</code> 和<code>master_rand</code> 进行 ElGamal 加密, 每张牌映射到到一密文<code>(c1, c2)</code> 上</p>
+<ul>
+<li><code>mask(Card, mater_pk, master_rand) -&gt; MaskedCard</code><img src="/images/zk/mental_poker/mask.png" alt="mask cards"></li>
+<li>进行 mask 操作的目的是把牌从字面值<code>m_i</code>, 映射到一组 elGamal 密文 field <code>(c1, c2)</code> 上, 方便后续进行洗牌. 所有玩家仍然知道 mask 过后的 card 对应的字面值.</li>
+<li>mask 操作的执行者要发布一个 mask 操作的 validity proof, 向所有参与者证明自己 mask 的过程中没有作弊. (其他参与者当然可以自己执行 mask 操作, 直接检验 mask 结果是否一致).</li>
+</ul>
+<h3 id="step-three-shuffle-and-remask-阶段-把牌公平随机洗乱">Step Three. Shuffle and Remask 阶段: 把牌公平随机洗乱</h3>
+<p>洗牌过程中, 每一个玩家执行一次 <code>shuffle_remask</code> 操作, 每个玩家只知道自己洗的那次牌的前后映射关系, 每个人都洗一次保证了只有所有玩家通力合作才可以揭开洗完之后的牌. <img src="/images/zk/mental_poker/shuffle_remask.png" alt="shuffle"></p>
+<ul>
+<li><code>remask</code> 操作: remask 操作和 mask 操作类似, 只是输入的类型字面值变为密文. 目的都是为了加密卡片的当前值. <code>remask(MaskedCard, master_pk; rand) -&gt; MaskedCard</code>
+<ul>
+<li>根据 remask 过程当中使用随机数和 master key, 能得到一个 <code>reveal_token</code>, 当一个经过所有玩家 <code>remask</code> 过的卡片 <code>MaskedCard_i</code> 只有被所有 <code>reveal_token</code> unmask 后才能揭开牌的牌面值 <code>m_i</code>.</li>
+</ul>
+</li>
+<li><code>shuffle_remask</code> 操作:
+<ul>
+<li>玩家先 pick 一个 random nounce 执行 <code>shuffle</code> 函数打乱接收到的牌序列.</li>
+<li>玩家在打乱之后, 再 pick 一个 randomness 把打乱后的每一张牌 <code>remask</code> 一次(同时生成对应的 <code>reveal_token</code>), 把 <code>shuffle_remask</code>  后的牌主组给下一个玩家, 直到所有玩家都洗过一遍.</li>
+</ul>
+</li>
+<li>每位玩家要发布一个 <code>shuffle_remask</code> 操作的 zk validity proof (keep randomness secret), 向所有参与者证明 mask 的过程中没有作弊. 每个参与者都要验证其他所有人的洗牌操作.</li>
+</ul>
+<h3 id="step-four-reveal-阶段-把牌发出去">Step Four. Reveal 阶段: 把牌发出去</h3>
+<p>根据前文所述的 unmask 操作, 所有玩家合作, 根据扑克规则, 给玩家发牌. 比如, 根据规则玩家一(拥有<code>sk_1, pk_1, reveal_token_1</code>) 应该得到牌堆的第一张牌<code>masked_cards_1</code>:</p>
+<ul>
+<li>除玩家一以外的所有玩家根据参与洗牌的顺序, 依次使用自己的 <code>reveal_token</code> unmask <code>masked_cards_1</code>, 最后将多次 unmask 的结果发送给玩家一, 玩家一最后再用自己的 <code>reveal_token_1</code> unmask 一次, 得到牌的字面值 <code>m_i</code>.</li>
+<li>所有玩家在 unmask 是也要生成一个 unmask 操作的 validity proof, 确保牌被正确的 unmask. 其他玩家都要验证每一步的 unmask 过程, 防止部分玩家合作作弊.</li>
+</ul>
+<h3 id="step-five-compare-阶段-比较手牌大小">Step Five: Compare 阶段: 比较手牌大小</h3>
+<p>在最后一个回合, 所有要求仍未棋牌玩家依次公开自己的手牌, 并证明自己的手牌是有效的. 玩家即可以通过公开并证明自己的 <code>reveal token</code> 揭示自己的手牌, 也可以自己 unmask 并公布牌面值, 并发布自己 unmask 操作的 validity proof.</p>
+<p>总而言之, 根据我们前文所描述的内容, 在不涉及赌注结算的情况下, 我们可以在多个互相不信任的玩家之间实现 Mental Poker 游戏. 观察上面的协议, 我们可以很容易的发现, 一旦一个玩家不遵守游戏规则, 游戏就无法进行下去. 也就是说, 玩家可以轻易地发起 DoS attack.</p>
+<h2 id="如何在链上进行下注结算">如何在链上进行下注结算?</h2>
+<p>在讨论如何结算之前, 我们先要考虑以上针对 Mental Poker 的协议有那些特点:</p>
+<ul>
+<li>所有游戏的参与者相互不信任, 所有参与者通过 validity proof 相互验证操作, 确保其他玩家无法作弊.</li>
+<li>游戏能否进行下去取决于所有玩家是否都遵守规则: 即玩家应该根据协议, 在规定的回合完成自己应该完成的工作, 并向其他玩家证明自己工作的有效性.</li>
+</ul>
+<p>了解了这两个特点, 我们可以进一步讨论如果我们想要在链上进行下注与结算, 安全目标有哪些?</p>
+<ul>
+<li><strong>结算的公正性</strong>: 在 <code>(n-1)/n</code> 的玩家都尝试作弊的情况下, 结算层的胜负判定仍然是公正的.
+<ul>
+<li>该目标的意义在于确保在每一局结算的时候, 结算结果的判定只取决于当前 Mental Pocker 协议的游戏规则与随机的洗牌的结果.</li>
+</ul>
+</li>
+<li><strong>底池的完整性</strong>: 一旦游戏开始, 任何一玩家(除非所有玩家都统一)都无法撤回投入底池当中的筹码, 底池保持其的单向流入直到结算.</li>
+<li><strong>结算的必然性</strong>: 每局游戏都要根据游戏规则, 在一个固定时间上限以内公正地完成结算.
+<ul>
+<li>在 Poker 游戏当中, 愿赌不一定服输, 处于劣势方的玩家有充分的动机阻止或是提前游戏的结算.</li>
+</ul>
+</li>
+<li><strong>游戏的完整性</strong>: 整个下注结算的过程要遵守 Mental Poker 的规则, 完成整个下注到结算的游戏过程.</li>
+</ul>
+<p>下面我们将考虑不同安全目标下的设计思路:</p>
+<p>情况一: 结算协议<strong>只要求保证结算的公正性</strong>. 我们可以轻松地在任何链上(evm, btc scripts)结合 n-n 多签以及可回退时间锁等技术实现结算合约. 该合约类似一个多方参与的 payment channel: 在一个结算时间之前各个子账户之间的资金分配操作通过 n-n 多签进行; 在结算时间后每个用户都可以拿回子账户的余额. 该合约显然保证了结算的公正性, 但是一旦玩家之间未能达成共识(出现了某些不遵守规则的玩家), 游戏将会中止, 最后资金按照终止前状态退还.</p>
+<p>情况二: <strong>只保证结算公正性与底池完整性</strong>, 结算层可以采取锁定底池的方式: 一旦玩家之间未达成共识, 结算层就锁定当前这一局的底池, 保证底池的完整性.</p>
+<p>情况三: <strong>满足前三个条件</strong>, 可以在方案一的基础上, 修改超时之后的结算规则. 这里有一个关键的知识, 即<strong>一场比赛的胜负在洗牌结束之后就已经确定了</strong>. 在共识无法达成触发超时结算的条件后, 结算层可以根据零知识证明等相关技术, 依据洗牌的时候提供的 commitments, 保证当前底池里面的余额仍划给胜利的一方. 但该设计未能满足游戏的完整性, 恶意玩家可以频繁的发动 DoS 攻击, 影响游戏体验.</p>
+<p>情况四: 结算协议满足<strong>所有安全目标</strong>, 保证游戏完整的运行下去, 结算层需要识别出回合中不遵守规则的玩家. 游戏当中的每一步操作可以看作是一笔交易, 交易的顺序由游戏规则说确定)的 L2 (如果结算层是 L1 的话). 所有 L2 (玩家) 之间的操作具有时序先后关系, L1 需要根据游戏规则确定的顺序, 监督 L2 的操作. 因此, L2 为了向 L1 证明自己的正确性, 需要依照游戏周期, 向 L1 发送操作的 commitments/proofs.</p>
+<p>我们可以参考 rollups 的设计思路, 大致也有两种解决方案:</p>
+<ul>
+<li>一种是类似于 op-rollups 基于欺诈证明的设计: 所有玩家在 L1 或是 DA 上打每一部操作的 commmitments, 其他玩家举证某个参与方的欺诈或是消极行为, 结算层接受并验证欺诈证明, 如果验证成功, 惩罚该作弊者(燃烧所有筹码等).</li>
+<li>一种是类似 zk-rollups 的 基于 validity proof 的设计, 结算层充当一个不参与游戏的玩家, 验证每一个玩家每一步的操作是否 valid.  L2 可以通过 batch 等方式优化验证开销.</li>
+</ul>
+<p>对比这两种实现方案, 前者的中, L2 完成大部分校验工作, L1 只需要在完成结算之前, 留下一些时间对可能提交欺诈证明进行校验, 在大多数情况下(所有参与者都是诚实的) L1 不需要验证. 而后者的方案, L1 需要完整校验所有玩家的所有操作, 有着更大的开销, 扩展性更差.</p>
+<h2 id="总结">总结</h2>
+<p>基于近几十年的零知识证明技术在理论上工程实现上的快速进步, 在普通玩家的电脑上运行 Mental Poker 协议变得可行. 但为了完成在链上进行 Mental Poker 的结算, 结算层合约的设计者需要考虑结算安全指标与链上开销之间的平衡. 刚才上网找了找, <a href="https://zkholdem.xyz/">zkholdem</a>, 一个链上 Mental Poker Game 项目已经上了 testnet. 该项目非结算的部分与前文的思路基本一致, 但有关合约其实现的相关资料还比较少, 有时间再看看源码.</p>
+<blockquote>
+<p>相关链接
+本文第一部分主要参考以下链接:</p>
+<ol>
+<li><a href="https://geometry.xyz/notebook/mental-poker-in-the-age-of-snarks-part-1">https://geometry.xyz/notebook/mental-poker-in-the-age-of-snarks-part-1</a></li>
+<li><a href="https://geometry.xyz/notebook/mental-poker-in-the-age-of-snarks-part-2">https://geometry.xyz/notebook/mental-poker-in-the-age-of-snarks-part-2</a></li>
+<li><a href="https://aandds.com/blog/schnorr-proof.html">https://aandds.com/blog/schnorr-proof.html</a></li>
+<li><a href="https://zkholdem.xyz/wp-content/themes/zkholdem-theme/zkshuffle.pdf">https://zkholdem.xyz/wp-content/themes/zkholdem-theme/zkshuffle.pdf</a>
+一些 Mental Poker 相关的库:</li>
+<li><a href="https://github.com/geometryresearch/mental-poker">https://github.com/geometryresearch/mental-poker</a></li>
+<li><a href="https://github.com/kripod/mental-poker">https://github.com/kripod/mental-poker</a></li>
+</ol>
+</blockquote>
+
+		</section>
+
+		<div class="post-tags">
+			
+			
+			<nav class="nav tags">
+				<ul class="tags">
+					
+					<li><a href="/tags/zk">zk</a></li>
+					
+				</ul>
+			</nav>
+			
+			
+		</div>
+	</article>
+</main>
+<footer>
+<hr><a class="soc" href="https://github.com/Vieloooo" title="GitHub"><i data-feather="github"></i></a>|<a class="soc" href="https://twitter.com/PlasticHug/" title="Twitter"><i data-feather="twitter"></i></a>|<a class="soc" href="mailto:mailto:jin.liu.0201@gmail.com" title="Email"><i data-feather="mail"></i></a>|<a class="soc" href="https://t.me/J6mple" title="Telegram"><i data-feather="navigation"></i></a>|不能 不明白| <a href="https://gohugo.io">Hugo</a> - <a href="https://github.com/athul/archie">archie</a>
+</footer>
+
+
+<script>
+      feather.replace()
+</script></div>
+    </body>
+</html>
