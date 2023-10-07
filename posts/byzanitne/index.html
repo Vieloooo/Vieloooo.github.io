@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html><head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Byzanine Consensus under Static Peer Assumption - Vielog</title><meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta property="og:image" content=""/>
+	<meta property="og:title" content="Byzanine Consensus under Static Peer Assumption" />
+<meta property="og:description" content="Notes fot Foundations of Distributed Consensus and Blockchains by Elaine Shi" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/byzanitne/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-10-06T10:34:07+08:00" />
+<meta property="article:modified_time" content="2023-10-06T10:34:07+08:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Byzanine Consensus under Static Peer Assumption"/>
+<meta name="twitter:description" content="Notes fot Foundations of Distributed Consensus and Blockchains by Elaine Shi"/>
+<script src="/js/feather.min.js"></script>
+	
+	<link href="/css/fonts.css" rel="stylesheet">
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+	
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+	
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="/">Vielog</a>
+	</div>
+	<nav>
+		
+		<a href="/posts">All posts</a>
+		
+		<a href="/authors/about">About</a>
+		
+		<a href="/tags">Tags</a>
+		
+		<a href="/gallery/moments">Gallery</a>
+		
+	</nav>
+</header>
+
+<main>
+	<article>
+		<div class="title">
+			<h1 class="title">Byzanine Consensus under Static Peer Assumption</h1>
+			<div class="meta">Created on Oct 6, 2023</div>
+		</div>
+		
+
+		<section class="body">
+			<blockquote>
+<p>Notes fot the book &ldquo;Foundations of Distributed Consensus and Blockchains&rdquo; by Elaine Shi</p>
+</blockquote>
+<ul>
+<li>
+<p>What is a Byzantine Fault?</p>
+<ul>
+<li><strong>Crash Fault</strong>: Adversarial nodes do not send or receive any messages.</li>
+<li><strong>Omission Fault</strong>: Adversarial nodes selectively choose to drop or let through each message sent or received.</li>
+<li><strong>Byzantine Fault</strong>: Adversarial nodes can deviate from the protocol arbitrarily.</li>
+</ul>
+</li>
+<li>
+<p>What is static assumption?</p>
+<ul>
+<li><strong>Static</strong>: Participants in the consensus scenario are pre-defined. In the execution of a consensus protocol, the peers do not change.</li>
+<li><strong>Dynamic</strong>: Nodes can join/leave the protocol freely.</li>
+</ul>
+</li>
+<li>
+<p><strong>Consensus Problems</strong></p>
+<ul>
+<li><strong>Byzantine Broadcast (BB) Protocol</strong>:
+<ul>
+<li>Consider a distributed network of <code>n</code> nodes numbered 1, 2, &hellip;, <code>n</code> respectively. There are <code>f</code> corrupt nodes, where <code>f &lt; n</code>.</li>
+<li>Node 1 is the sender of the network.</li>
+<li>At the beginning of a protocol, the designated sender receives an input bit <code>b</code> in <code>{0, 1}</code>. All nodes (at least honest ones) run the same consensus protocol. At the end of the protocol, every node should output a bit.
+<ul>
+<li><strong>Consistency</strong>: If two honest nodes output <code>b</code> and <code>b'</code> respectively, then <code>b = b'</code>.</li>
+<li><strong>Validity</strong>: If the sender is honest and receives the input bit <code>b</code>, then all honest nodes should output <code>b</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Byzantine Agreement (BA) Problem</strong>:
+<ul>
+<li>Consider a distributed network of <code>n</code> nodes numbered 1, 2, &hellip;, <code>n</code> respectively. There are <code>f</code> corrupt nodes, where <code>f &lt; n</code>.</li>
+<li>At the beginning of a protocol, every node receives an input <code>b</code> in <code>{0,1}</code>. All nodes (at least honest ones) run the same consensus protocol. At the end of the protocol, every node should output (agree on) a bit.</li>
+<li><strong>Properties</strong>:
+<ul>
+<li><strong>Consistency</strong>: If two honest nodes output <code>b1</code> and <code>b2</code> respectively, then <code>b1 = b2</code>.</li>
+<li><strong>Validity</strong>: If all honest nodes receive the same input bit <code>b</code>, then all honest nodes must output <code>b</code>.</li>
+<li><strong>T-liveness</strong>: Every honest node must have produced an output after <code>T</code> rounds where <code>T</code> may be a function of <code>n</code>, the actual network delay <code>∆</code>, and other parameters. (In sync, partial-sync network). For async network, all honest nodes output eventually (assuming that messages are delivered eventually).</li>
+</ul>
+</li>
+<li><strong>Weak valid BA Protocol</strong>
+<ul>
+<li>Replace the original validity property with <strong>weak validity</strong>:
+<ul>
+<li>If <strong>all nodes are honest</strong> and they all receive the same input bit <code>b</code>, then they must all output <code>b</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>State Machine Replication (SMR) Protocol</strong>:
+<ul>
+<li>The <code>n</code> nodes work together as a whole system, with each node maintaining an ever-growing, linearly-ordered sequence of transactions (aka. log, finalized log to be more accurate). The logs between replicas should achieve <strong>Consistency</strong>:
+<ul>
+<li>For  <code>Log_a</code> from <code>node a</code> and <code>Log_b</code> from <code>node b</code>, <code>Log_a</code> should be the prefix (&lt;=) of <code>Log_b</code>, or vice-versa.</li>
+</ul>
+</li>
+<li>Every honest node should achieve <strong>Liveness</strong>: If an honest node wants to add a new valid transaction <code>tx</code> to the system (its own log and other honest nodes&rsquo; logs) at time <code>t</code>, <code>tx</code> will be added to the system within a pre-defined delay <code>T</code>. (For example, in Bitcoin&rsquo;s Nakamoto consensus protocol, <code>T</code> is about 60 min, or 6 block times.)</li>
+</ul>
+</li>
+<li><strong>Blockchain Protocol</strong>: SMR protocol + Byzantine fault tolerance.</li>
+</ul>
+</li>
+<li>
+<p><strong>Network Assumption</strong>
+- <strong>Sync</strong>: Every node knows that for any message from node A to B, it takes at most <code>∆</code> time. (The network has a pre-defined max delay that every node knows.)
+- <strong>Partial Sync</strong>: There are two different definitions for partial synchrony proposed in the paper &ldquo;Cynthia Dwork, Nancy Lynch, and Larry Stockmeyer. Consensus in the presence of partial synchrony. J. ACM, 1988.&rdquo;
+- <strong>Unknown-Delta</strong>: The network has an unknown network delay <code>∆</code>.
+- There exists a known <code>∆ &lt; ∞</code> and an event called the Global Stabilization Time (GST) such that:
+- GST eventually happens after some finite time that can be chosen arbitrarily by the adversary.
+- A message sent by an honest node at time <code>t</code> is delivered to its recipient(s) by time <code>∆ + max(GST, t)</code>.
+- <em>The network is in async mode before GST, and in sync mode with delay <code>∆</code> after GST</em>.  Honest nodes do not know the exact time of GST.
+- This two definition
+- <strong>Async</strong>: The adversary can delay any message for an arbitrary, yet finite amount of time.  However, it must eventually deliver every message sent by the honest nodes.</p>
+</li>
+<li>
+<p><strong>Other Considerations</strong>
+- <strong>PKI Setup</strong>:
+- Every node knows the public key of other nodes.
+- Every node can verify the message using modern cryptographic systems (e.g., ECDSA).
+- <strong>Security Model</strong>:
+- <strong>Deterministic Secure</strong>: The consensus protocol fulfills the security requirements (like validity/consistency) 100% of the time.
+- <strong>Probabilistic Secure</strong>: The consensus protocol fulfills the security requirements with a probability of <code>1-negl(λ)</code>, where <code>λ</code> is the security parameter.</p>
+</li>
+<li>
+<p><strong>BB + PKI Setup + Static Peers + Deterministic Security + Sync Network</strong>: Dolev-Strong Protocol</p>
+<ul>
+<li><strong>BB Round Bound</strong>: This protocol proved that a deterministic protocol solving Byzantine Broadcast (allowing ideal signatures) must incur at least <code>f + 1</code> rounds, where <code>f &lt; n</code> and <code>f</code> is the number of bad nodes.</li>
+</ul>
+</li>
+<li>
+<p><strong>BB + No PKI + Static Peers + Sync network</strong></p>
+<ul>
+<li><strong>BB Lower Bound</strong>: &ldquo;M. Pease, R. Shostak, and L. Lamport. Reaching agreement in the presence of faults&rdquo; proves:
+<ul>
+<li>In a plain pairwise authenticated channel model without any setup assumptions (only secure communication channel) such as a PKI, <strong>Deterministic Byzantine Broadcast (BB) is impossible if at least <code>n/3</code> nodes are corrupt.</strong></li>
+<li>Extension: For the probabilistic security model: there does <strong>not exist a protocol that achieves BB with a probability greater than 2/3 when <code>f &gt;= n/3</code> without PKI setup</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>BB + No PKI + Static Peers + Probabilistic Security + Sync Network</strong>: There exists a BB protocol for <code>f &lt; n/3</code>.</p>
+</li>
+<li>
+<p><strong>From BB to Blockchain Protocol</strong>:</p>
+<ul>
+<li>For any BB protocol under certain requirements, we can build a deterministic blockchain protocol under the same requirements as the BB.
+<ul>
+<li>We can achieve this by setting the round of the Blockchain protocol to execute the BB protocol + round-robin sender for each round.</li>
+<li>This method is not efficient.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Blockchain + PKI + Static Peers + Probabilistic Security + Partial Sync</strong>: The Streamlet protocol achieves probabilistic security when <code>f &lt; n/3</code>.</p>
+<ul>
+<li>In Streamlet:
+<ul>
+<li>Consistency holds regardless of the network delay.</li>
+<li>Liveness is guaranteed when at least 5 honest nodes are elected as leaders in 5 consecutive epochs (which leads to probabilistic security).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>No BB in Partial Sync Network with at Least 1 Bad Node</strong></p>
+</li>
+<li>
+<p><strong>No BA in Partial Sync Network when <code>f &gt; n/3</code></strong></p>
+<ul>
+<li>This means the Streamlet touches the <code>f</code> lower bound</li>
+<li>Extension: <strong>No BA in Sync Network when <code>f &gt; n/2</code></strong></li>
+</ul>
+</li>
+<li>
+<p><strong>From BB to Weak Valid BA</strong>: If there is a deterministic <code>R</code>-round BB protocol that tolerates <code>f</code> corruptions, then there is a deterministic <code>R</code>-round weakly valid BA protocol also tolerating <code>f</code> corruptions.</p>
+</li>
+<li>
+<p><strong>FLP Impossibility</strong>: <strong>No Deterministic Weak BA in Async Network</strong></p>
+<ul>
+<li>There does not exist a deterministic, asynchronous protocol that realizes weakly valid Byzantine Agreement in the presence of one crash fault.</li>
+<li>There exist randomized asynchronous consensus protocols that are secure in the presence of <code>f &lt; n/3</code> corruptions.</li>
+</ul>
+</li>
+<li>
+<p><strong>Summary</strong></p>
+<ul>
+<li><strong>Difficulty</strong> to build consensus protocol: BB &gt; Blockchain &gt; BA &gt; Weak Valid BA
+<ul>
+<li>Any BB + round-robin sender =&gt; Blockchain</li>
+<li>For a single round of a blockchain protocol, If the client who proposes a transaction can reach any honest node, and send the transaction to every honest node =&gt; BA</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+		</section>
+
+		<div class="post-tags">
+			
+			
+			<nav class="nav tags">
+				<ul class="tags">
+					
+					<li><a href="/tags/consensus">consensus</a></li>
+					
+				</ul>
+			</nav>
+			
+			
+		</div>
+	</article>
+</main>
+<footer>
+<hr><a class="soc" href="https://github.com/Vieloooo" title="GitHub"><i data-feather="github"></i></a>|<a class="soc" href="https://twitter.com/PlasticHug/" title="Twitter"><i data-feather="twitter"></i></a>|<a class="soc" href="mailto:mailto:jin.liu.0201@gmail.com" title="Email"><i data-feather="mail"></i></a>|<a class="soc" href="https://t.me/J6mple" title="Telegram"><i data-feather="navigation"></i></a>|不能 不明白| <a href="https://gohugo.io">Hugo</a> - <a href="https://github.com/athul/archie">archie</a>
+</footer>
+
+
+<script>
+      feather.replace()
+</script></div>
+    </body>
+</html>
