@@ -122,16 +122,24 @@
 </ul>
 </li>
 <li>
-<p><strong>Network Assumption</strong>
-- <strong>Sync</strong>: Every node knows that for any message from node A to B, it takes at most <code>∆</code> time. (The network has a pre-defined max delay that every node knows.)
-- <strong>Partial Sync</strong>: There are two different definitions for partial synchrony proposed in the paper &ldquo;Cynthia Dwork, Nancy Lynch, and Larry Stockmeyer. Consensus in the presence of partial synchrony. J. ACM, 1988.&rdquo;
-- <strong>Unknown-Delta</strong>: The network has an unknown network delay <code>∆</code>.
-- There exists a known <code>∆ &lt; ∞</code> and an event called the Global Stabilization Time (GST) such that:
-- GST eventually happens after some finite time that can be chosen arbitrarily by the adversary.
-- A message sent by an honest node at time <code>t</code> is delivered to its recipient(s) by time <code>∆ + max(GST, t)</code>.
-- <em>The network is in async mode before GST, and in sync mode with delay <code>∆</code> after GST</em>.  Honest nodes do not know the exact time of GST.
-- This two definition
-- <strong>Async</strong>: The adversary can delay any message for an arbitrary, yet finite amount of time.  However, it must eventually deliver every message sent by the honest nodes.</p>
+<p><strong>Network Assumption</strong></p>
+<ul>
+<li><strong>Sync</strong>: Every node knows that for any message from node A to B, it takes at most <code>∆</code> time. (The network has a pre-defined max delay that every node knows.)</li>
+<li><strong>Partial Sync</strong>: There are two different definitions for partial synchrony proposed in the paper &ldquo;Cynthia Dwork, Nancy Lynch, and Larry Stockmeyer. Consensus in the presence of partial synchrony. J. ACM, 1988.&rdquo;
+<ul>
+<li><strong>Unknown-Delta</strong>: The network has an unknown network delay <code>∆</code>.</li>
+<li>There exists a known <code>∆ &lt; ∞</code> and an event called the Global Stabilization Time (GST) such that:
+<ul>
+<li>GST eventually happens after some finite time that can be chosen arbitrarily by the adversary.</li>
+<li>A message sent by an honest node at time <code>t</code> is delivered to its recipient(s) by time <code>∆ + max(GST, t)</code>.</li>
+<li><em>The network is in async mode before GST, and in sync mode with delay <code>∆</code> after GST</em>.  Honest nodes do not know the exact time of GST.</li>
+<li>This two definition</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Async</strong>: The adversary can delay any message for an arbitrary, yet finite amount of time.  However, it must eventually deliver every message sent by the honest nodes.</li>
+</ul>
 </li>
 <li>
 <p><strong>Other Considerations</strong>
