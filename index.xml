@@ -8,12 +8,12 @@
     <language>en-us</language>
     <lastBuildDate>Fri, 06 Oct 2023 10:34:07 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Byzanine Consensus under Static Peer Assumption</title>
+      <title>Byzantine Consensus under Static Peer Assumption</title>
       <link>/posts/byzanitne/</link>
       <pubDate>Fri, 06 Oct 2023 10:34:07 +0800</pubDate>
       
       <guid>/posts/byzanitne/</guid>
-      <description>Notes fot the book &amp;ldquo;Foundations of Distributed Consensus and Blockchains&amp;rdquo; by Elaine Shi
+      <description>Some notes for the book &amp;ldquo;Foundations of Distributed Consensus and Blockchains&amp;rdquo; by Elaine Shi
 What is a Byzantine Fault?
 Crash Fault: Adversarial nodes do not send or receive any messages. Omission Fault: Adversarial nodes selectively choose to drop or let through each message sent or received. Byzantine Fault: Adversarial nodes can deviate from the protocol arbitrarily. What is static assumption?
 Static: Participants in the consensus scenario are pre-defined. In the execution of a consensus protocol, the peers do not change.</description>
