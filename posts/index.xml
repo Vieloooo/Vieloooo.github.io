@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Vielog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 06 Oct 2023 10:34:07 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 Oct 2023 10:34:07 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>当用户相信 Defi 与 传统金融服务具有相同的安全性时会发生什么?</title>
+      <link>/posts/defi_censorship/</link>
+      <pubDate>Tue, 17 Oct 2023 10:34:07 +0800</pubDate>
+      
+      <guid>/posts/defi_censorship/</guid>
+      <description>本文探讨的 defi 均是指基于账户模型智能合约形式 defi protocol: uniswap, aave, compound, maker dai 等. 主流 defi 应用的合规化是不可避免的 当今主要的 defi 合约都部署在基于 PoS 相关算法的 L1 或是基于</description>
+    </item>
+    
     <item>
       <title>Byzantine Consensus under Static Peer Assumption</title>
       <link>/posts/byzanitne/</link>

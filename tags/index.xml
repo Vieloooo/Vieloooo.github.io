@@ -6,7 +6,16 @@
     <description>Recent content in Tags on Vielog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 06 Oct 2023 10:34:07 +0800</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 Oct 2023 10:34:07 +0800</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>defi</title>
+      <link>/tags/defi/</link>
+      <pubDate>Tue, 17 Oct 2023 10:34:07 +0800</pubDate>
+      
+      <guid>/tags/defi/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>consensus</title>
       <link>/tags/consensus/</link>

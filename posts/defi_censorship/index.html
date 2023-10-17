@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html><head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>当用户相信 Defi 与 传统金融服务具有相同的安全性时会发生什么? - Vielog</title><meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta property="og:image" content=""/>
+	<meta property="og:title" content="当用户相信 Defi 与 传统金融服务具有相同的安全性时会发生什么?" />
+<meta property="og:description" content="defi in real world" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/defi_censorship/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-10-17T10:34:07+08:00" />
+<meta property="article:modified_time" content="2023-10-17T10:34:07+08:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="当用户相信 Defi 与 传统金融服务具有相同的安全性时会发生什么?"/>
+<meta name="twitter:description" content="defi in real world"/>
+<script src="/js/feather.min.js"></script>
+	
+	<link href="/css/fonts.css" rel="stylesheet">
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+	
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+	
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="/">Vielog</a>
+	</div>
+	<nav>
+		
+		<a href="/posts">All posts</a>
+		
+		<a href="/authors/about">About</a>
+		
+		<a href="/tags">Tags</a>
+		
+		<a href="/gallery/moments">Gallery</a>
+		
+	</nav>
+</header>
+
+<main>
+	<article>
+		<div class="title">
+			<h1 class="title">当用户相信 Defi 与 传统金融服务具有相同的安全性时会发生什么?</h1>
+			<div class="meta">Created on Oct 17, 2023</div>
+		</div>
+		
+
+		<section class="body">
+			<blockquote>
+<p>本文探讨的 defi 均是指基于账户模型智能合约形式 defi protocol: uniswap, aave, compound, maker dai 等.</p>
+</blockquote>
+<ul>
+<li>主流 defi 应用的合规化是不可避免的
+<ul>
+<li>当今主要的 defi 合约都部署在基于 PoS 相关算法的 L1 或是基于此类 L1 的 rollup 上
+<ul>
+<li>L1 质押中心化<img src="/images/defi_censorship/staking_share.png" alt="https://dune.com/hildobby/eth2-staking"></li>
+<li>L1 结点的中心化<img src="/images/defi_censorship/eth_node_country.png" alt="https://etherscan.io/nodetracker"></li>
+</ul>
+</li>
+<li>Defi 治理团体的实体化
+<ul>
+<li>例子:
+<ul>
+<li>Makerdao RWA</li>
+<li>DAO as LLC at some states in the US</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>defi 本质是提供一种金融服务, 所有服务必然 Liable, 即服务的提供方必须对自己提供的服务负有责任.
+<ul>
+<li>在一个法治国家, 现实生活中所有的服务都是需要接受监管, 即使该服务是非盈利性质的.</li>
+<li>监管是对&quot;民众对服务安全性的要求&quot;的共识的执行.</li>
+</ul>
+</li>
+<li>前两点阐释了合规化的可实现原因, 最后一点实现了合规实现的动机</li>
+</ul>
+</li>
+<li>合规化/审查可能会发生在哪些层面?
+<ul>
+<li>Consensus Layer:
+<ul>
+<li>对 validator 的审核(比如 kyc);</li>
+<li>对 p2p 网络的审核 (屏蔽某些地区的结点);</li>
+<li>所有结点对交易进行一定审核(相当与一套对交易的共识规则);</li>
+<li>配合监管方进行 fork, 类似 2016 The DAO Fork;</li>
+</ul>
+</li>
+<li>Execution Layer: 单个结点( sequenser, block builder&hellip;) 对交易的审核</li>
+<li>Protocol Layer: defi protocol  对交易进行审查</li>
+<li>Frontend: UI 前端对交易进行审查<img src="/images/defi_censorship/makerdao_censor.png" alt="MakerDAO Sparking protocl ban US users and VPN"></li>
+</ul>
+</li>
+<li>那些实体有被监管的风险?
+<ul>
+<li>所有使用者</li>
+<li>Governance Token 持有者</li>
+<li>受雇佣于某个 DAO 的实体: 开发者, 律师, 交易员等等.</li>
+</ul>
+</li>
+<li>如果要对 defi 达到传统金融服务相同的监管力度, 需要哪些层面的监管?
+<ul>
+<li>不幸的是, 如果我们仅仅思考现实世界 &ldquo;银行经营需要政府颁发执业许可&rdquo; 这一条要求, 就会发现我们需要在 consensus layer 实现审查. 具体来说, 制定一条如下的规则:
+<ul>
+<li>&ldquo;审查每个上链的合约, 判断是否为银行合约(lending protocol like aave, compound&hellip;), 如果是的话就要检查该合约是否合规&rdquo;</li>
+<li>而&quot;合规性检查&quot;进一步会对该 protocol 的发行方进行审查(显然需要发行方进行 KYC)并要求该 protocol 满足反洗钱要求.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>悲观的看, 如果政府使用相同的监管力度约束 defi 服务, 那么 defi 寄生的链将会直接变成一条联盟链, 所有 defi 的用户都要进行 KYC.</li>
+<li>幸运的是, 区块链在执行层上的无需信任性与透明性(或是可证明性在某些隐私链上)给予了 defi 更为宽松的监管力度, 使得 defi 可以在更低的审查力度下, 更低的监管成本下运行.
+<ul>
+<li>让我们再回顾一下政府(民选)监管的目的: 让民众感到安全. 这是一个非常主观的而且变化的指标.</li>
+<li>面对一个每时每刻公开自己的账本的金融服务商(而且保证为真)和一个每年公开自己账本(还不知道增加)一次的服务商, 前者显然在更宽松的监管下可以给与后者一样安全感.</li>
+</ul>
+</li>
+</ul>
+<p>总而言之, 相较于传统金融服务, defi protocol 依靠其无需信任性与透明性溢价, 换取了更为宽松的监管力度, 从而进一步换取在流动性与开放性的优势. 至于能换来多少优势, 取决于到底要大多的监管力度才能让用户感到安全. 下面是几种可能的形态:</p>
+<ul>
+<li>defi running on decentralized, secure but extremely slow blockchain =&gt; no censorship =&gt; 开放性 +++, 流动性&ndash;</li>
+<li>defi running on perminssionless PoS chain, frontend censorship =&gt; 开放性 +++, 流动性+.</li>
+<li>defi running on perminssionless PoS chain, protocol level blacklist/kyc, defi governance DAO fully liable =&gt; 开放性-, 流动性+</li>
+<li>defi running on perminssioned chain, consensus level censorship =&gt;  开放性&ndash;, 流动性随着准入门槛的提高而下降</li>
+<li>tradfi + permissioned chian, fully off-chain kyc =&gt; 开放性&mdash;, 流动性-=&gt; only make SEC&rsquo;s live easier</li>
+</ul>
+
+		</section>
+
+		<div class="post-tags">
+			
+			
+			<nav class="nav tags">
+				<ul class="tags">
+					
+					<li><a href="/tags/defi">defi</a></li>
+					
+				</ul>
+			</nav>
+			
+			
+		</div>
+	</article>
+</main>
+<footer>
+<hr>
+If you like my post, you can Zap me on Lightning ⚡. <br>
+My LNURL:  billowingsun815571@getalby.com
+<hr><a class="soc" href="https://github.com/Vieloooo" title="GitHub"><i data-feather="github"></i></a>|<a class="soc" href="https://twitter.com/PlasticHug/" title="Twitter"><i data-feather="twitter"></i></a>|<a class="soc" href="mailto:mailto:jin.liu.0201@gmail.com" title="Email"><i data-feather="mail"></i></a>|<a class="soc" href="https://t.me/J6mple" title="Telegram"><i data-feather="navigation"></i></a>|不能 不明白| <a href="https://gohugo.io">Hugo</a> - <a href="https://github.com/athul/archie">archie</a>
+</footer>
+
+
+<script>
+      feather.replace()
+</script></div>
+    </body>
+</html>
