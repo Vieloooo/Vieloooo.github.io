@@ -1,7 +1,7 @@
 /* Markdown */
 :root{
---maincolor: rgb(33, 202, 194);
---bordercl:rgb(140, 199, 191);
+--maincolor: #186F65;
+--bordercl:#rgb(33, 202, 194);
 --callouctcolor:dodgerblue;
 --hovercolor:rgb(144, 178, 197);
 --darkMaincolor: #50fa7b;
