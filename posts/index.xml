@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Vielog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 17 Oct 2023 10:34:07 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 Oct 2023 10:34:07 +0800</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Taproot Asset 快速上手体验</title>
+      <link>/posts/taro/</link>
+      <pubDate>Fri, 20 Oct 2023 10:34:07 +0800</pubDate>
+      
+      <guid>/posts/taro/</guid>
+      <description>参考学习 taproot asset 介绍: https://www.btcstudy.org/2022/04/08/how-bitcoin-taro-protocol-works/ https://www.btcstudy.org/2022/04/07/announing-Taro-a-new-protocol-for-multi-asset-bitcoin-and-lightning/ taproot asset 文档 https://docs.lightning.engineering/the-lightning-network/taproot-assets taproot asset demo https://www.youtube.com/watch?v=JNaryHu2mFc https://www.youtube.com/watch?v=xtklaJHfKIY 安装与配置 docker docker compose/ docker desktop polar: https://github.com/jamaljsr/polar linux 下可能要注意 docker volume 没有权限读取的问题, chmod chown 一下就行 btc exporer https://github.com/janoside/btc-rpc-explorer 主要用来看一下 bitcoin regtest</description>
+    </item>
+    
     <item>
       <title>当用户相信 Defi 与 传统金融服务具有相同的安全性时会发生什么?</title>
       <link>/posts/defi_censorship/</link>

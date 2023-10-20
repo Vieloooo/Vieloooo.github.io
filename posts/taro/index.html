@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html><head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Taproot Asset 快速上手体验 - Vielog</title><meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta property="og:image" content=""/>
+	<meta property="og:title" content="Taproot Asset 快速上手体验" />
+<meta property="og:description" content="在 Polar 上运行 Taproot Asset" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/taro/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-10-20T10:34:07+08:00" />
+<meta property="article:modified_time" content="2023-10-20T10:34:07+08:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Taproot Asset 快速上手体验"/>
+<meta name="twitter:description" content="在 Polar 上运行 Taproot Asset"/>
+<script src="/js/feather.min.js"></script>
+	
+	<link href="/css/fonts.css" rel="stylesheet">
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+	
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+	
+</head>
+<body>
+        <div class="content"><header>
+  <div class="main">
+    <a href="/">Vielog</a>
+	<br>
+  </div>
+
+  <div >
+	<div style="display: flex; justify-content: flex-end;"><a class="soc" href="https://github.com/Vieloooo" title="GitHub"
+      ><i data-feather="github"></i></a><a class="soc" href="https://twitter.com/PlasticHug/" title="Twitter"
+      ><i data-feather="twitter"></i></a><a class="soc" href="mailto:mailto:jin.liu.0201@gmail.com" title="Email"
+      ><i data-feather="mail"></i></a></div>
+<div>
+	<nav>
+    
+    <a href="/posts">All posts</a>
+    
+    <a href="/tags">Tags</a>
+    
+    <a href="/gallery/moments">Gallery</a>
+    
+    <a href="/authors/about">About</a>
+    
+  </nav>
+  </div>
+  
+
+  
+</header>
+
+<main>
+	<article>
+		<div class="title">
+			<h1 class="title">Taproot Asset 快速上手体验</h1>
+			<div class="meta">Created on Oct 20, 2023</div>
+		</div>
+		
+
+		<section class="body">
+			<h2 id="参考学习">参考学习</h2>
+<ul>
+<li>taproot asset 介绍:
+<ul>
+<li><a href="https://www.btcstudy.org/2022/04/08/how-bitcoin-taro-protocol-works/">https://www.btcstudy.org/2022/04/08/how-bitcoin-taro-protocol-works/</a></li>
+<li><a href="https://www.btcstudy.org/2022/04/07/announing-Taro-a-new-protocol-for-multi-asset-bitcoin-and-lightning/">https://www.btcstudy.org/2022/04/07/announing-Taro-a-new-protocol-for-multi-asset-bitcoin-and-lightning/</a></li>
+</ul>
+</li>
+<li>taproot  asset 文档
+<ul>
+<li><a href="https://docs.lightning.engineering/the-lightning-network/taproot-assets">https://docs.lightning.engineering/the-lightning-network/taproot-assets</a></li>
+</ul>
+</li>
+<li>taproot asset demo
+<ul>
+<li><a href="https://www.youtube.com/watch?v=JNaryHu2mFc">https://www.youtube.com/watch?v=JNaryHu2mFc</a></li>
+<li><a href="https://www.youtube.com/watch?v=xtklaJHfKIY">https://www.youtube.com/watch?v=xtklaJHfKIY</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="安装与配置">安装与配置</h2>
+<ul>
+<li>docker</li>
+<li>docker compose/ docker desktop</li>
+<li>polar:
+<ul>
+<li><a href="https://github.com/jamaljsr/polar">https://github.com/jamaljsr/polar</a></li>
+<li>linux 下可能要注意 docker volume 没有权限读取的问题, <code>chmod chown</code> 一下就行</li>
+</ul>
+</li>
+<li>btc exporer
+<ul>
+<li><a href="https://github.com/janoside/btc-rpc-explorer">https://github.com/janoside/btc-rpc-explorer</a></li>
+<li>主要用来看一下 bitcoin regtest 链上信息.</li>
+<li>需要根据 bitcoin core node 的 rpc 相关信息配置一下 <code>.env</code> 文件: <img src="/images/taro/btc_config.png" alt=""></li>
+</ul>
+</li>
+</ul>
+<h2 id="简单的-mint-transfer-test">简单的 mint transfer test</h2>
+<p>下面我将使用 Polar 测试 Taproot asset, 测试网络结构如下:<img src="/images/taro/struct.png" alt=""></p>
+<ul>
+<li>Alice Mint 10000 个 代币 &ldquo;token 2&rdquo;
+<ul>
+<li>cli: `tapcli assets mint &ndash;type normal &ndash;name token2 &ndash;supply 10000</li>
+<li>资产root 如下:</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>		{
+</span></span><span style="display:flex;"><span>            &#34;version&#34;: &#34;ASSET_VERSION_V0&#34;,
+</span></span><span style="display:flex;"><span>            &#34;asset_genesis&#34;: {
+</span></span><span style="display:flex;"><span>                &#34;genesis_point&#34;: &#34;f4d4e47e5cfd62a8622711611eb93912ea87745e8c38c9e69db5f6d4aaf8f6a5:2&#34;,
+</span></span><span style="display:flex;"><span>                &#34;name&#34;: &#34;token2&#34;,
+</span></span><span style="display:flex;"><span>                &#34;meta_hash&#34;: &#34;0000000000000000000000000000000000000000000000000000000000000000&#34;,
+</span></span><span style="display:flex;"><span>                &#34;asset_id&#34;: &#34;23e7e86156494e1d2dc9145592e2d6cdc770ebdde225d88328e91041b3d9f097&#34;,
+</span></span><span style="display:flex;"><span>                &#34;output_index&#34;: 0,
+</span></span><span style="display:flex;"><span>                &#34;version&#34;: 0
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            &#34;asset_type&#34;: &#34;NORMAL&#34;,
+</span></span><span style="display:flex;"><span>            &#34;amount&#34;: &#34;10000&#34;,
+</span></span><span style="display:flex;"><span>            &#34;lock_time&#34;: 0,
+</span></span><span style="display:flex;"><span>            &#34;relative_lock_time&#34;: 0,
+</span></span><span style="display:flex;"><span>            &#34;script_version&#34;: 0,
+</span></span><span style="display:flex;"><span>            &#34;script_key&#34;: &#34;0230daab2a93af3da911cb2be1ba5ee5e8aa0d4027b993f142cbffb0844a8f8327&#34;,
+</span></span><span style="display:flex;"><span>            &#34;script_key_is_local&#34;: true,
+</span></span><span style="display:flex;"><span>            &#34;asset_group&#34;: null,
+</span></span><span style="display:flex;"><span>            &#34;chain_anchor&#34;: {
+</span></span><span style="display:flex;"><span>                &#34;anchor_tx&#34;: &#34;02000000000101a5f6f8aad4f6b59de6c9388c5e7487ea1239b91e61112762a862fd5c7ee4d4f40200000000ffffffff02e803000000000000225120d91026b1a909e791552fe5ef364ebeee5c63ca2f55106b2c6582b10c4bc792576a36030000000000225120359c5ea0a019c6bd28b035cdd82c47a20b0e62ce8381238a0b4644c18c47325e0140a3e378b6af1117c1dcc6e582c088933c41f867b58ec1bda8bf7f3dbf50c8c8147c7310e441b894d43ca693ace999ee6eb7a3d0be26148874f48f882c7da8440600000000&#34;,
+</span></span><span style="display:flex;"><span>                &#34;anchor_txid&#34;: &#34;658a897735b41375ed57d7b185077101b2b269d73c068bfcf2c2298516a20cb6&#34;,
+</span></span><span style="display:flex;"><span>                &#34;anchor_block_hash&#34;: &#34;0000000000000000000000000000000000000000000000000000000000000000&#34;,
+</span></span><span style="display:flex;"><span>                &#34;anchor_outpoint&#34;: &#34;658a897735b41375ed57d7b185077101b2b269d73c068bfcf2c2298516a20cb6:0&#34;,
+</span></span><span style="display:flex;"><span>                &#34;internal_key&#34;: &#34;03d9a9a6452b3040f22bafda6a80bb3c9fd9a26cca54e233968eeb5798a3a6e649&#34;,
+</span></span><span style="display:flex;"><span>                &#34;merkle_root&#34;: &#34;30f22527514d67fe95f8056b881a71560cd6adf67cc5a23942332068236e47ab&#34;,
+</span></span><span style="display:flex;"><span>                &#34;tapscript_sibling&#34;: &#34;&#34;,
+</span></span><span style="display:flex;"><span>                &#34;block_height&#34;: 0
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            &#34;prev_witnesses&#34;: [],
+</span></span><span style="display:flex;"><span>            &#34;is_spent&#34;: false,
+</span></span><span style="display:flex;"><span>            &#34;lease_owner&#34;: &#34;&#34;,
+</span></span><span style="display:flex;"><span>            &#34;lease_expiry&#34;: &#34;0&#34;,
+</span></span><span style="display:flex;"><span>            &#34;is_burn&#34;: false
+</span></span><span style="display:flex;"><span>        }
+</span></span></code></pre></div><ul>
+<li>Finalize 新 mint 的 token: <code>tapcli assets list</code>
+<ul>
+<li>这是我们使用 btc-expoler 看一下 mempool, 发现有一笔新的交易 <code>658a897735b41375ed57d7b185077101b2b269d73c068bfcf2c2298516a20cb6</code>  <img src="/images/taro/tx1.png" alt=""></li>
+<li>此时区块高度为 170, 现在我们控制 bitcoin core 结点再挖6个块把该 mint 交易 finalize 一下. <img src="/images/taro/b1.png" alt=""></li>
+<li>可见上面那个交易在 171 高度被打包, 此时相当于结点 alice 在链上打了 &ldquo;我 alice 刚刚在 taro 合约当中发布了10000个 token2&rdquo; 的 commitment.</li>
+</ul>
+</li>
+<li>此时 bob 仍然不知道 alice mint 了一个新的 token &ldquo;token2&rdquo;, bob 必须要通过 alice sync 同步才知道, bob 从 alice 处获得 token 的基本信息同时在链上验证该 token 相关信息是否被 commit 了</li>
+<li>现在 bob 想要 alice 向 bob 发送 100 &ldquo;token2&rdquo; , bob 需要生成一个新的地址, <code>taprt1qqqsqqspqqzzqgl8aps4vj2wr5kuj9z4jt3ddnw8wr4amc39mzpj36gsgxeanuyhqcssykxk8pfl6gkcr4jdl0lv8vzwqdqma75jglh6q6cr3nvmmv0q5xlgpqss98a2p0lnwa8nrv9avs25g4c6zcahuhxzmg382a62wste3mvem4evpgqkgrp0dpshx6rdv95kcw309akkz6tvvfhhstn5v4ex66twv9kzumrfva58gmnfdenjuar0v3shjw35xsesss5gky</code></li>
+<li>alice 向该地址发送, 此时会触发一笔链上交易, 该交易在 177 高度被打包 <img src="/images/taro/b1.png" alt="">
+<ul>
+<li>该交易把之前的状态 commitment 转移到新的 3 个 utxo 里面<img src="/images/taro/tx2.png" alt=""></li>
+</ul>
+</li>
+<li>上链之后, bob 可以判断自己有了 100 个 &ldquo;token2&rdquo;:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>tap@bob-tap:/$ tapcli assets list | grep -12 token2
+</span></span><span style="display:flex;"><span>                &#34;block_height&#34;: 0
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            &#34;prev_witnesses&#34;: [],
+</span></span><span style="display:flex;"><span>            &#34;is_spent&#34;: false,
+</span></span><span style="display:flex;"><span>            &#34;lease_owner&#34;: &#34;&#34;,
+</span></span><span style="display:flex;"><span>            &#34;lease_expiry&#34;: &#34;0&#34;,
+</span></span><span style="display:flex;"><span>            &#34;is_burn&#34;: false
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            &#34;version&#34;: &#34;ASSET_VERSION_V0&#34;,
+</span></span><span style="display:flex;"><span>            &#34;asset_genesis&#34;: {
+</span></span><span style="display:flex;"><span>                &#34;genesis_point&#34;: &#34;f4d4e47e5cfd62a8622711611eb93912ea87745e8c38c9e69db5f6d4aaf8f6a5:2&#34;,
+</span></span><span style="display:flex;"><span>                &#34;name&#34;: &#34;token2&#34;,
+</span></span><span style="display:flex;"><span>                &#34;meta_hash&#34;: &#34;0000000000000000000000000000000000000000000000000000000000000000&#34;,
+</span></span><span style="display:flex;"><span>                &#34;asset_id&#34;: &#34;23e7e86156494e1d2dc9145592e2d6cdc770ebdde225d88328e91041b3d9f097&#34;,
+</span></span><span style="display:flex;"><span>                &#34;output_index&#34;: 0,
+</span></span><span style="display:flex;"><span>                &#34;version&#34;: 0
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            &#34;asset_type&#34;: &#34;NORMAL&#34;,
+</span></span><span style="display:flex;"><span>            &#34;amount&#34;: &#34;100&#34;,
+</span></span><span style="display:flex;"><span>            &#34;lock_time&#34;: 0,
+</span></span><span style="display:flex;"><span>            &#34;relative_lock_time&#34;: 0,
+</span></span><span style="display:flex;"><span>            &#34;script_version&#34;: 0,
+</span></span><span style="display:flex;"><span>            &#34;script_key&#34;: &#34;0258d63853fd22d81d64dfbfec3b04e0341befa9247efa06b038cd9bdb1e0a1be8&#34;,
+</span></span><span style="display:flex;"><span>            &#34;script_key_is_local&#34;: true,
+</span></span></code></pre></div><ul>
+<li>以上只是对 taproot asset  protocol 的简单操作, 更多操作读者可以自己动手玩玩.</li>
+</ul>
+<h2 id="总结">总结</h2>
+<ul>
+<li>Taproot asset 仍是使用传统 bitcoin 扩展思路, 即在链上对状态进行commit(承诺), 链下完成计算, 链下用户结合链上链下信息共同校验.</li>
+<li>Taproot asset 服务的 avaliability 仍然依赖资产的中心化发行方或是其他维护结点, 用户需要在链下获得资产状态.</li>
+<li>Taproot asset 同样可以利用 payment channel  的思想, 在通道里面支付, 链上在结算, 有意思的是可以把<a href="https://docs.lightning.engineering/the-lightning-network/taproot-assets">多种资产的 channel 组合使用</a>. 就是资产碎片化可能是个大问题<img src="/images/taro/multi_channel.png" alt=""></li>
+<li>Taproot asset 资产的有效性也是<strong>完全依赖于资产的发行方</strong>, 一旦发行方出问题, 你的 token 也只是一个数字, 链上的 commitment 更没有任何意义. 换句话说, <strong>Taproot asset 资产存储价值仍然在链下, taproot asset 协议不托管资产, 只是提供&quot;托管你在发行方那里托管资产的凭证&quot;的服务, 并使用 bitcoin 保证你托管凭证的安全.</strong> 说人话就是 Taproot asset protocol 让你在发行/使用被 bitcoin &ldquo;保护&rdquo; 的同质化代币和NFT. 个人用户想发行的话需要实时跑台服务器, 不像erc20, taproot asset 你不维护状态就没有了.</li>
+</ul>
+<h2 id="展望">展望</h2>
+<ul>
+<li>肯定有狗庄在上面发行各种 shitcoin, nft 割韭菜.</li>
+<li>某个法律实体开始在上面发行实体资产的凭证, 各种 USDx, 股票, 证券国债等等. 这些主要的风险是发行方跑路还有监管, 尤其要考虑到对中转结点的监管风险.</li>
+</ul>
+
+		</section>
+
+		<div class="post-tags">
+			
+			
+			<nav class="nav tags">
+				<ul class="tags">
+					
+					<li><a href="/tags/lightning">lightning</a></li>
+					
+					<li><a href="/tags/btc">btc</a></li>
+					
+				</ul>
+			</nav>
+			
+			
+		</div>
+	</article>
+</main>
+<footer>
+<hr>
+<div style="display: flex; justify-content: center;"> 
+      If you like my post, you can Zap me on Lightning ⚡. 
+</div>
+<div>
+
+<lightning-widget 
+  name="PlasticBug" 
+  accent="#FCE09B" 
+  to="billowingsun815571@getalby.com" 
+  image="https://vieloooo.github.io/images/basic/peep.png" 
+  amounts="10, 100, 1000"
+  style="transform: scale(0.8);  justify-content: center;"
+/ >
+<script src="https://embed.twentyuno.net/js/app.js"></script>
+</div>
+
+
+</footer>
+
+
+<script>
+      feather.replace()
+</script></div>
+    </body>
+</html>
