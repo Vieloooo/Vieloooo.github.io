@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html><head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>ChaumMian CoinJoin - Vielog</title><meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta property="og:image" content=""/>
+	<meta property="og:title" content="ChaumMian CoinJoin" />
+<meta property="og:description" content="在 bitcoin 上基于一个不可信第三方进行混币" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/coinjoin/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-10-26T10:34:07+08:00" />
+<meta property="article:modified_time" content="2023-10-26T10:34:07+08:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ChaumMian CoinJoin"/>
+<meta name="twitter:description" content="在 bitcoin 上基于一个不可信第三方进行混币"/>
+<script src="/js/feather.min.js"></script>
+	
+	<link href="/css/fonts.css" rel="stylesheet">
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+	
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+	
+</head>
+<body>
+        <div class="content"><header>
+  <div class="main">
+    <a href="/">Vielog</a>
+	<br>
+  </div>
+
+  <div >
+	<div style="display: flex; justify-content: flex-end;"><a class="soc" href="https://github.com/Vieloooo" title="GitHub"
+      ><i data-feather="github"></i></a><a class="soc" href="https://twitter.com/PlasticHug/" title="Twitter"
+      ><i data-feather="twitter"></i></a><a class="soc" href="mailto:mailto:jin.liu.0201@gmail.com" title="Email"
+      ><i data-feather="mail"></i></a></div>
+<div>
+	<nav>
+    
+    <a href="/posts">All posts</a>
+    
+    <a href="/tags">Tags</a>
+    
+    <a href="/gallery/moments">Gallery</a>
+    
+    <a href="/authors/about">About</a>
+    
+  </nav>
+  </div>
+  
+
+  
+</header>
+
+<main>
+	<article>
+		<div class="title">
+			<h1 class="title">ChaumMian CoinJoin</h1>
+			<div class="meta">Created on Oct 26, 2023</div>
+		</div>
+		
+
+		<section class="body">
+			<ul>
+<li>目标：构建一笔 bitcoin mixer 交易, 打乱 Inputs Outputs 的关联. <img src="/images/coinjoin/exp.png" alt="examples"></li>
+<li>前置知识
+<ul>
+<li><a href="https://en.bitcoin.it/wiki/CoinJoin">Coinjoin</a></li>
+<li>UTXO</li>
+<li>盲签名介绍：
+<ul>
+<li><a href="https://mp.weixin.qq.com/s/gjmWhFVBpVrbW_wCd7UucA">https://mp.weixin.qq.com/s/gjmWhFVBpVrbW_wCd7UucA</a></li>
+<li><code>UnBlind ( Sign( Blind(msg) ) ) = Sign(msg) </code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>参与者：
+<ul>
+<li>用户</li>
+<li>coordinator: 一个无需信任的第三方</li>
+</ul>
+</li>
+<li>为了简单起见，假设池子的单位为 1 btc，全部使用 P2PKH 的方式进行转账。参与者 alice 想要自己的 addr1 的 tx ouput（大于 1btc ）当中转 1btc 到 bob 的地址 addr2 当中</li>
+<li>过程
+<ul>
+<li>alice 使用某个匿名的网络 id1 连上 coordiantor（tor etc）</li>
+<li>alice 向 coordiator 证明自己可以解锁一个未使用的 ouput（大于 1btc ）OP1
+<ul>
+<li>alice -&gt; coordinator: 我拥有地址 addr1, 可以解锁 OP1 ( 使用 pk 就可以证明)</li>
+<li>coordinator -&gt; alice: 麻烦您签个名，我认证一下哈</li>
+<li>alice -&gt; coordinator: 签名消息</li>
+<li>coordinator 验证成功</li>
+</ul>
+</li>
+<li>alice 向 coordiator 发送 bob 公钥的盲消息 <strong>M1</strong> = <code>&lt; Blind(Hash(addr2.pk)) &gt;</code></li>
+<li>coordinator 对 M1 直接签名，并向 alice 返回 签名消息：<strong>M2</strong> =  <code>Sign(Coordinator.sk, M1) </code></li>
+<li>coordinator  向当前池子 tx 的临时 outputs 当中加上一条对 alice 的找零 output
+<ul>
+<li><code>OP_DUP</code> <code>OP_HASH160</code> <code>&lt;Hash(addr1.pk)&gt;</code> <code>OP_EQUALVERIFY</code> <code>OP_CHECKSIG</code></li>
+</ul>
+</li>
+<li>alice 在 网络 id 1 下线，更换 id2  连上 coordinator（tor etc）</li>
+<li>alice 对 M2 去盲得到 <strong>M3</strong> =<code>Sign(Coordinator.sk, Hash(addr2.pk))</code>,并把 <strong>M2</strong> 和接收者的公钥哈希发送到 coordinator</li>
+<li>coordinator 用自己的私钥验证，发现自己的确对这个接收者签了名</li>
+<li>coordinator 向当前池子 tx 的临时 outputs 当中加上一条对 addr2 的 1btc 转账
+<ul>
+<li><code>OP_DUP</code> <code>OP_HASH160</code> <code>&lt;Hash(addr2.pk)&gt;</code> <code>OP_EQUALVERIFY</code> <code>OP_CHECKSIG</code></li>
+</ul>
+</li>
+<li>当 coordinator 发现池子足够大的时候把完整的 outputs 发给所有的该池子的用户，要求所有的参与者签名，锁住 outputs（此时 outputs 不会在添加了）</li>
+<li>alice 从网络 id2 下线，更换 id3</li>
+<li>alice 接收到了完成的 outputs， 作了个简单的算术，发现自己的两笔转账都在里面（一笔 1btc 给bob 的， 一笔找零给自己的）满意地签了名，把签名和自己的公钥（addr1.pk）发给 coordinator</li>
+<li>coordinator 收集到了所有的签名，构建了所有的inputs ，把完整的 池子 tx 发送到 btc 网络上，完成交易</li>
+<li>待交易确认之后，bob 可以向正常使用 P2PKH 一样使用 alice 的转过来的 1btc</li>
+</ul>
+</li>
+<li>匿名问题：有谁知道转移对？
+<ul>
+<li>alice：alice 作为发起人，当然知道</li>
+<li>bob：如果bob 只知道链上的消息，bob不知道这笔钱是 alice 给转的。但是alice 和 bob 往往在链下有联系（要不然为什么要向bob 转账呢？除了<a href="https://web3caff.com/zh/archives/26627%5D">投毒攻击</a>，甚至往往可能是同一个人。</li>
+<li>coordinator:coordinator 知道所有 input 对应的公钥.  由于 alice 使用两个不同的网络 id 发送 <strong>M1 M3</strong>.  coordinator 无法将 <strong>M1</strong> 和<strong>M3</strong> 关联起来，除非 coordinator 关联了 id。</li>
+<li>混币池子里面其他的用户：无法知道其他的转移对，只知道完整的整个池子的转移</li>
+<li>其他人：更加无从得知转移对。</li>
+</ul>
+</li>
+<li>破解匿名的方法：
+<ul>
+<li>网络层面关联 id1 id2</li>
+<li>coinjoin 常规攻击：在一个池子当中混入足够多的内鬼交易对（可以被攻击者知晓的交易对），可以暴露其他混币者的转移对。</li>
+</ul>
+</li>
+<li>安全问题：
+<ul>
+<li>alice 怎样不会被 coordinator欺骗？
+<ul>
+<li>在整个交易过程当中，alice 只签名了两次
+<ul>
+<li>第一次签名用于证明了自己掌握了某个 output，过程与使用钱包 连接dapp的过程一致，签名消息都是明文。</li>
+<li>第二次是对整个池子 coinjoin 进行签名，alice只要验证钱是否有足够的钱转到 bob 和自己的，就可以签名了。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>coordinator 怎样不被用户欺骗？
+<ul>
+<li>Coordinator 会对所有用户合格用户进行一个盲签。在我们举的例子当中，coordinator 会对所有 160 bit 的消息进行签名。</li>
+</ul>
+</li>
+<li>混币池子里面其他的用户：无法知道其他的转移对，只知道完整的</li>
+<li>盲签的安全性:
+<ul>
+<li>为了防止攻击者构造特殊的hash攻击让 coordinator 签名，盲签采用的签名方法应该与 btc 网络当中的签名方法完全不同，这样攻击者无法伪造 tx 签名。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>参考链接</p>
+<ul>
+<li>George Maxwell 提出coinjoin  <a href="https://bitcointalk.org/index.php?topic=279249.0">https://bitcointalk.org/index.php?topic=279249.0</a></li>
+<li>盲签在 Coinjoin 的应用 <a href="https://bitcointalk.org/index.php?topic=150681.0">https://bitcointalk.org/index.php?topic=150681.0</a></li>
+<li>Wasabi wallet coinjoin 过程       <a href="https://www.youtube.com/watch?v=eba4bUeB8TM">https://www.youtube.com/watch?v=eba4bUeB8TM</a></li>
+<li>Zerolink introduction  <a href="https://github.com/nopara73/ZeroLink/blob/master/README.md">https://github.com/nopara73/ZeroLink/blob/master/README.md</a></li>
+</ul>
+</blockquote>
+
+		</section>
+
+		<div class="post-tags">
+			
+			
+			<nav class="nav tags">
+				<ul class="tags">
+					
+					<li><a href="/tags/btc">btc</a></li>
+					
+				</ul>
+			</nav>
+			
+			
+		</div>
+	</article>
+</main>
+<footer>
+<hr>
+<div style="display: flex; justify-content: center;"> 
+      If you like my post, you can Zap me on Lightning ⚡. 
+</div>
+<div>
+
+<lightning-widget 
+  name="PlasticBug" 
+  accent="#FCE09B" 
+  to="billowingsun815571@getalby.com" 
+  image="https://vieloooo.github.io/images/basic/peep.png" 
+  amounts="10, 100, 1000"
+  style="transform: scale(0.8);  justify-content: center;"
+/ >
+<script src="https://embed.twentyuno.net/js/app.js"></script>
+</div>
+
+
+</footer>
+
+
+<script>
+      feather.replace()
+</script></div>
+    </body>
+</html>

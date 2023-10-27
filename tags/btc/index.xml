@@ -6,7 +6,16 @@
     <description>Recent content in btc on Vielog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 20 Oct 2023 10:34:07 +0800</lastBuildDate><atom:link href="/tags/btc/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 26 Oct 2023 10:34:07 +0800</lastBuildDate><atom:link href="/tags/btc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ChaumMian CoinJoin</title>
+      <link>/posts/coinjoin/</link>
+      <pubDate>Thu, 26 Oct 2023 10:34:07 +0800</pubDate>
+      
+      <guid>/posts/coinjoin/</guid>
+      <description>目标：构建一笔 bitcoin mixer 交易, 打乱 Inputs Outputs 的关联. 前置知识 Coinjoin UTXO 盲签名介绍： https://mp.weixin.qq.com/s/gjmWhFVBpVrbW_wCd7UucA UnBlind ( Sign( Blind(msg) ) ) = Sign(msg) 参与者： 用户 coordinator: 一个无需信任的第三方 为了简单起见，假设池子的</description>
+    </item>
+    
     <item>
       <title>Taproot Asset 快速上手体验</title>
       <link>/posts/taro/</link>
