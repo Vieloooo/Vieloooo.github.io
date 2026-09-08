@@ -1,20 +1,40 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>lightning on Vielog</title>
-    <link>/tags/lightning/</link>
-    <description>Recent content in lightning on Vielog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Fri, 20 Oct 2023 10:34:07 +0800</lastBuildDate><atom:link href="/tags/lightning/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Taproot Asset 快速上手体验</title>
-      <link>/posts/taro/</link>
-      <pubDate>Fri, 20 Oct 2023 10:34:07 +0800</pubDate>
-      
-      <guid>/posts/taro/</guid>
-      <description>参考学习 taproot asset 介绍: https://www.btcstudy.org/2022/04/08/how-bitcoin-taro-protocol-works/ https://www.btcstudy.org/2022/04/07/announing-Taro-a-new-protocol-for-multi-asset-bitcoin-and-lightning/ taproot asset 文档 https://docs.lightning.engineering/the-lightning-network/taproot-assets taproot asset demo https://www.youtube.com/watch?v=JNaryHu2mFc https://www.youtube.com/watch?v=xtklaJHfKIY 安装与配置 docker docker compose/ docker desktop polar: https://github.com/jamaljsr/polar linux 下可能要注意 docker volume 没有权限读取的问题, chmod chown 一下就行 btc exporer https://github.com/janoside/btc-rpc-explorer 主要用来看一下 bitcoin regtest</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Lightning · Jingyu Liu</title><link>https://vieloooo.github.io/tags/lightning/</link><description>Jingyu Liu · PhD student in Financial Technology at HKUST (Guangzhou). Research in blockchain, mechanism design, and decentralized finance.</description><language>en-US</language><atom:link href="https://vieloooo.github.io/tags/lightning/index.xml" rel="self" type="application/rss+xml"/><item><title>Taproot Asset 快速上手体验</title><link>https://vieloooo.github.io/posts/taro/</link><guid>https://vieloooo.github.io/posts/taro/</guid><pubDate>Fri, 20 Oct 2023 10:34:07 +0800</pubDate><description>&lt;h2 id="参考学习"&gt;参考学习&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;taproot asset 介绍:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.btcstudy.org/2022/04/08/how-bitcoin-taro-protocol-works/"&gt;https://www.btcstudy.org/2022/04/08/how-bitcoin-taro-protocol-works/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.btcstudy.org/2022/04/07/announing-Taro-a-new-protocol-for-multi-asset-bitcoin-and-lightning/"&gt;https://www.btcstudy.org/2022/04/07/announing-Taro-a-new-protocol-for-multi-asset-bitcoin-and-lightning/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;taproot asset 文档
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://docs.lightning.engineering/the-lightning-network/taproot-assets"&gt;https://docs.lightning.engineering/the-lightning-network/taproot-assets&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;taproot asset demo
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=JNaryHu2mFc"&gt;https://www.youtube.com/watch?v=JNaryHu2mFc&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=xtklaJHfKIY"&gt;https://www.youtube.com/watch?v=xtklaJHfKIY&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="安装与配置"&gt;安装与配置&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;docker&lt;/li&gt;
+&lt;li&gt;docker compose/ docker desktop&lt;/li&gt;
+&lt;li&gt;polar:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/jamaljsr/polar"&gt;https://github.com/jamaljsr/polar&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;linux 下可能要注意 docker volume 没有权限读取的问题, &lt;code&gt;chmod chown&lt;/code&gt; 一下就行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;btc exporer
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/janoside/btc-rpc-explorer"&gt;https://github.com/janoside/btc-rpc-explorer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;主要用来看一下 bitcoin regtest 链上信息.&lt;/li&gt;
+&lt;li&gt;需要根据 bitcoin core node 的 rpc 相关信息配置一下 &lt;code&gt;.env&lt;/code&gt; 文件: &lt;img src="https://vieloooo.github.io/images/taro/btc_config.png" alt=""&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="简单的-mint-transfer-test"&gt;简单的 mint transfer test&lt;/h2&gt;
+&lt;p&gt;下面我将使用 Polar 测试 Taproot asset, 测试网络结构如下:&lt;img src="https://vieloooo.github.io/images/taro/struct.png" alt=""&gt;&lt;/p&gt;</description></item></channel></rss>

@@ -1,20 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Galleries on Vielog</title>
-    <link>/gallery/</link>
-    <description>Recent content in Galleries on Vielog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 23 Nov 2020 21:30:32 +0800</lastBuildDate><atom:link href="/gallery/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Moments</title>
-      <link>/gallery/moments/</link>
-      <pubDate>Mon, 23 Nov 2020 21:30:32 +0800</pubDate>
-      
-      <guid>/gallery/moments/</guid>
-      <description>元旦的海 除夕之列</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Galleries · Jingyu Liu</title><link>https://vieloooo.github.io/gallery/</link><description>Jingyu Liu · PhD student in Financial Technology at HKUST (Guangzhou). Research in blockchain, mechanism design, and decentralized finance.</description><language>en-US</language><atom:link href="https://vieloooo.github.io/gallery/index.xml" rel="self" type="application/rss+xml"/><item><title>Moments</title><link>https://vieloooo.github.io/gallery/moments/</link><guid>https://vieloooo.github.io/gallery/moments/</guid><pubDate>Mon, 23 Nov 2020 21:30:32 +0800</pubDate><description>&lt;h2 id="元旦的海"&gt;元旦的海&lt;/h2&gt;
+&lt;p&gt;&lt;img src="https://vieloooo.github.io/images/life/sea-1.JPG" alt=""&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="除夕之列"&gt;除夕之列&lt;/h2&gt;
+&lt;p&gt;&lt;img src="https://vieloooo.github.io/images/life/bus-night-1.jpg" alt=""&gt;
+&lt;img src="https://vieloooo.github.io/images/life/bus-night-2.jpg" alt=""&gt;&lt;/p&gt;</description></item></channel></rss>

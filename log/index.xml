@@ -1,19 +1,36 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Logs on Vielog</title>
-    <link>/log/</link>
-    <description>Recent content in Logs on Vielog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="/log/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title></title>
-      <link>/log/2021-26/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/log/2021-26/</guid>
-      <description>最近学了一些什么 BC golang Merkle Tree 实现 MPT 基本内容 zero knowledge proof rust intro English trying to restore my speaking traning cultivate some test resource of ielts 课内 完成了一个简单的miniRv 汇编实验 开始单周期cpu设计实验 dev</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Logs · Jingyu Liu</title><link>https://vieloooo.github.io/log/</link><description>Jingyu Liu · PhD student in Financial Technology at HKUST (Guangzhou). Research in blockchain, mechanism design, and decentralized finance.</description><language>en-US</language><atom:link href="https://vieloooo.github.io/log/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://vieloooo.github.io/log/2021-26/</link><guid>https://vieloooo.github.io/log/2021-26/</guid><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><description>&lt;h2 id="最近学了一些什么"&gt;最近学了一些什么&lt;/h2&gt;
+&lt;h3 id="bc"&gt;BC&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;golang Merkle Tree 实现&lt;/li&gt;
+&lt;li&gt;MPT 基本内容&lt;/li&gt;
+&lt;li&gt;zero knowledge proof&lt;/li&gt;
+&lt;li&gt;rust intro&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="english"&gt;English&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;trying to restore my speaking traning&lt;/li&gt;
+&lt;li&gt;cultivate some test resource of ielts&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="课内"&gt;课内&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;完成了一个简单的miniRv 汇编实验&lt;/li&gt;
+&lt;li&gt;开始单周期cpu设计实验
+&lt;ol&gt;
+&lt;li&gt;dev Doc
+&lt;ol&gt;
+&lt;li&gt;interface&lt;/li&gt;
+&lt;li&gt;cycle control&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;功能部件设计&lt;/li&gt;
+&lt;li&gt;控制逻辑&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="七七八八"&gt;七七八八&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;恢复有氧训练&lt;/li&gt;
+&lt;li&gt;keeping update&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="一些体会"&gt;一些体会&lt;/h2&gt;</description></item></channel></rss>

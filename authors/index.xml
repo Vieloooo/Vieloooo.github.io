@@ -1,21 +1,17 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Authors on Vielog</title>
-    <link>/authors/</link>
-    <description>Recent content in Authors on Vielog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 10 Sep 2023 22:23:29 +0800</lastBuildDate><atom:link href="/authors/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>About me</title>
-      <link>/authors/about/</link>
-      <pubDate>Sun, 10 Sep 2023 22:23:29 +0800</pubDate>
-      
-      <guid>/authors/about/</guid>
-      <description> We must defend our own privacy if we expect to have any. We must come together and create systems which allow anonymous transactions to take place. People have been defending their own privacy for centuries with whispers, darkness, envelopes, closed doors, secret handshakes, and couriers. The technologies of the past did not allow for strong privacy, but electronic technologies do. Eric Hughes
-See my full resume here. </description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Authors · Jingyu Liu</title><link>https://vieloooo.github.io/authors/</link><description>Jingyu Liu · PhD student in Financial Technology at HKUST (Guangzhou). Research in blockchain, mechanism design, and decentralized finance.</description><language>en-US</language><atom:link href="https://vieloooo.github.io/authors/index.xml" rel="self" type="application/rss+xml"/><item><title>About me</title><link>https://vieloooo.github.io/authors/about/</link><guid>https://vieloooo.github.io/authors/about/</guid><pubDate>Sun, 10 Sep 2023 22:23:29 +0800</pubDate><description>&lt;hr&gt;
+&lt;div style="position:relative; height:60px;"&gt;
+&lt;img src="https://vieloooo.github.io/images/basic/peep.png"
+style="position:absolute; top:-10px; right:10px; width:80px; height:80px; border:none;"
+alt="me"
+title="avatar" /&gt;
+&lt;/div&gt;
+&lt;br&gt;
+&lt;blockquote&gt;
+We must defend our own privacy if we expect to have any. We must
+come together and create systems which allow anonymous transactions
+to take place. People have been defending their own privacy for
+centuries with whispers, darkness, envelopes, closed doors, secret
+handshakes, and couriers. The technologies of the past did not allow
+for strong privacy, but electronic technologies do.
+&lt;hr&gt;
+&lt;p style="text-align:right;"&gt;Eric Hughes&lt;/p&gt;</description></item></channel></rss>

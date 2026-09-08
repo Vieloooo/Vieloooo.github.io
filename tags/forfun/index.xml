@@ -1,20 +1,31 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>forfun on Vielog</title>
-    <link>/tags/forfun/</link>
-    <description>Recent content in forfun on Vielog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 23 Nov 2020 21:30:32 +0800</lastBuildDate><atom:link href="/tags/forfun/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Ubuntu</title>
-      <link>/posts/ubuntu/</link>
-      <pubDate>Mon, 23 Nov 2020 21:30:32 +0800</pubDate>
-      
-      <guid>/posts/ubuntu/</guid>
-      <description>outline 硬件准备 clash on linux 开发环境搭建 硬件准备 灵越 7590 ， windows 系统盘 ssd + sn750 空盘 bios 中，把硬盘模式调到achi ， 关闭security boot ，关闭 windows 快速启动，打开le</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Forfun · Jingyu Liu</title><link>https://vieloooo.github.io/tags/forfun/</link><description>Jingyu Liu · PhD student in Financial Technology at HKUST (Guangzhou). Research in blockchain, mechanism design, and decentralized finance.</description><language>en-US</language><atom:link href="https://vieloooo.github.io/tags/forfun/index.xml" rel="self" type="application/rss+xml"/><item><title>Ubuntu</title><link>https://vieloooo.github.io/posts/ubuntu/</link><guid>https://vieloooo.github.io/posts/ubuntu/</guid><pubDate>Mon, 23 Nov 2020 21:30:32 +0800</pubDate><description>&lt;h2 id="outline"&gt;outline&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;硬件准备&lt;/li&gt;
+&lt;li&gt;clash on linux&lt;/li&gt;
+&lt;li&gt;开发环境搭建&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="硬件准备"&gt;硬件准备&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;灵越 7590 ， windows 系统盘 ssd + sn750 空盘&lt;/li&gt;
+&lt;li&gt;bios 中，把硬盘模式调到achi ， 关闭security boot ，关闭 windows 快速启动，打开legency boot&lt;/li&gt;
+&lt;li&gt;插入ssd，windows中初始化硬盘，不分区&lt;/li&gt;
+&lt;li&gt;制作iso启动盘&lt;/li&gt;
+&lt;li&gt;进入bios，打开boot sequence ，把usb/boot//grub.efi加入boot 列表&lt;/li&gt;
+&lt;li&gt;f12， 引导选择，清空ssd sn750 ， 安装ubuntu&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="clash-on-linux-搭建"&gt;clash on linux 搭建&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;安装git vim ，解决raw.githubusercontent.com dns 污染问题（在hosts中加入ip）（更改为aliyun 的源）&lt;/li&gt;
+&lt;li&gt;安装 clash on linux ，解压tar&lt;/li&gt;
+&lt;li&gt;给clash 赋予对应权限&lt;/li&gt;
+&lt;li&gt;启动&lt;/li&gt;
+&lt;li&gt;找到.config/clash 中的config.yaml 和 country.mmdb 文件（前者为代理服务器文件，后者为ip分流文件）&lt;/li&gt;
+&lt;li&gt;从服务商获得yaml文件，和mmdb文件，替换原文件&lt;/li&gt;
+&lt;li&gt;clash 运行&lt;/li&gt;
+&lt;li&gt;打开clash.razord.top 进入控制面板（使用chrome 不要用firefox，firefox在会出现验证障碍）&lt;/li&gt;
+&lt;li&gt;把proxy 中继指向config.yaml对应端口（127.0.0.1:0000)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="环境配置"&gt;环境配置&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;zsh 配置（注意dns污染问题&lt;/p&gt;</description></item></channel></rss>

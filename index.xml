@@ -1,127 +1,264 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Vielog</title>
-    <link>/</link>
-    <description>Recent content on Vielog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 26 Oct 2023 10:34:07 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>ChaumMian CoinJoin</title>
-      <link>/posts/coinjoin/</link>
-      <pubDate>Thu, 26 Oct 2023 10:34:07 +0800</pubDate>
-      
-      <guid>/posts/coinjoin/</guid>
-      <description>目标：构建一笔 bitcoin mixer 交易, 打乱 Inputs Outputs 的关联. 前置知识 Coinjoin UTXO 盲签名介绍： https://mp.weixin.qq.com/s/gjmWhFVBpVrbW_wCd7UucA UnBlind ( Sign( Blind(msg) ) ) = Sign(msg) 参与者： 用户 coordinator: 一个无需信任的第三方 为了简单起见，假设池子的</description>
-    </item>
-    
-    <item>
-      <title>Taproot Asset 快速上手体验</title>
-      <link>/posts/taro/</link>
-      <pubDate>Fri, 20 Oct 2023 10:34:07 +0800</pubDate>
-      
-      <guid>/posts/taro/</guid>
-      <description>参考学习 taproot asset 介绍: https://www.btcstudy.org/2022/04/08/how-bitcoin-taro-protocol-works/ https://www.btcstudy.org/2022/04/07/announing-Taro-a-new-protocol-for-multi-asset-bitcoin-and-lightning/ taproot asset 文档 https://docs.lightning.engineering/the-lightning-network/taproot-assets taproot asset demo https://www.youtube.com/watch?v=JNaryHu2mFc https://www.youtube.com/watch?v=xtklaJHfKIY 安装与配置 docker docker compose/ docker desktop polar: https://github.com/jamaljsr/polar linux 下可能要注意 docker volume 没有权限读取的问题, chmod chown 一下就行 btc exporer https://github.com/janoside/btc-rpc-explorer 主要用来看一下 bitcoin regtest</description>
-    </item>
-    
-    <item>
-      <title>当用户相信 Defi 与 传统金融服务具有相同的安全性时会发生什么?</title>
-      <link>/posts/defi_censorship/</link>
-      <pubDate>Tue, 17 Oct 2023 10:34:07 +0800</pubDate>
-      
-      <guid>/posts/defi_censorship/</guid>
-      <description>本文探讨的 defi 均是指基于账户模型智能合约形式 defi protocol: uniswap, aave, compound, maker dai 等. 主流 defi 应用的合规化是不可避免的 当今主要的 defi 合约都部署在基于 PoS 相关算法的 L1 或是基于</description>
-    </item>
-    
-    <item>
-      <title>Byzantine Consensus under Static Peer Assumption</title>
-      <link>/posts/byzanitne/</link>
-      <pubDate>Fri, 06 Oct 2023 10:34:07 +0800</pubDate>
-      
-      <guid>/posts/byzanitne/</guid>
-      <description>Some notes for the book &amp;ldquo;Foundations of Distributed Consensus and Blockchains&amp;rdquo; by Elaine Shi
-What is a Byzantine Fault?
-Crash Fault: Adversarial nodes do not send or receive any messages. Omission Fault: Adversarial nodes selectively choose to drop or let through each message sent or received. Byzantine Fault: Adversarial nodes can deviate from the protocol arbitrarily. What is static assumption?
-Static: Participants in the consensus scenario are pre-defined. In the execution of a consensus protocol, the peers do not change.</description>
-    </item>
-    
-    <item>
-      <title>About me</title>
-      <link>/authors/about/</link>
-      <pubDate>Sun, 10 Sep 2023 22:23:29 +0800</pubDate>
-      
-      <guid>/authors/about/</guid>
-      <description> We must defend our own privacy if we expect to have any. We must come together and create systems which allow anonymous transactions to take place. People have been defending their own privacy for centuries with whispers, darkness, envelopes, closed doors, secret handshakes, and couriers. The technologies of the past did not allow for strong privacy, but electronic technologies do. Eric Hughes
-See my full resume here. </description>
-    </item>
-    
-    <item>
-      <title>如何利用 zk-snark 解决 Mental Poker 问题</title>
-      <link>/posts/mental_poker/</link>
-      <pubDate>Sun, 10 Sep 2023 10:34:07 +0800</pubDate>
-      
-      <guid>/posts/mental_poker/</guid>
-      <description>最近读到了几篇很有意思的文章, 讨论的是如何解决 Mental Poker 问题. Mental poker 问题 是由 Rivest, Shamir and Adleman 三位密码学家于1979年提出 (就是 RSA 的那三位). 简单来讲, Mental Poker 问</description>
-    </item>
-    
-    <item>
-      <title>MIT xv6 design from user prespective</title>
-      <link>/posts/xv6-lab1/</link>
-      <pubDate>Fri, 01 Oct 2021 10:34:07 +0800</pubDate>
-      
-      <guid>/posts/xv6-lab1/</guid>
-      <description>I will use mit 6.s801 lab1 &amp;ldquo;util&amp;rdquo; as an entry to the code behind. This article will not talk much about how to do lab1, but reveal some delicate design behind the syscall lab1 use.
-ex1- sleep #easy
-This is the easiest lab in the lab1, so I will not talk about this exercise. Let&amp;rsquo;s go through the syscall sys_sleep in sysproc.c
-uint64 sys_sleep(void) { int n; uint ticks0; if(argint(0, &amp;amp;n) &amp;lt; 0) return -1; acquire(&amp;amp;tickslock); ticks0 = ticks;	// ticks is a golbal var maintained by trap while(ticks - ticks0 &amp;lt; n){ if(myproc()-&amp;gt;killed){ release(&amp;amp;tickslock); return -1; } sleep(&amp;amp;ticks, &amp;amp;tickslock); } release(&amp;amp;tickslock); return 0; } ticks is the global variable maintained in trap.</description>
-    </item>
-    
-    <item>
-      <title>xv6 file system</title>
-      <link>/posts/xv6-fs/</link>
-      <pubDate>Fri, 01 Oct 2021 10:34:07 +0800</pubDate>
-      
-      <guid>/posts/xv6-fs/</guid>
-      <description>xv6 File system overview In general, There are 3 different ascpect on unix-like file system, file descriptor, file/directory and block. In xv6, they are distributed into 7 layers: Block interface The xv file system&amp;rsquo;s block interface consists of 34 layers(disk, buffer cache , logging and bitmap) Goal: achieve crash recovery
-Disk Disk is the most primitive layer of fs, which provide directly block R/W in device. Buffer cache This layer maintains a LRU Buffer queue to cache block data on disk, providing</description>
-    </item>
-    
-    <item>
-      <title>Moments</title>
-      <link>/gallery/moments/</link>
-      <pubDate>Mon, 23 Nov 2020 21:30:32 +0800</pubDate>
-      
-      <guid>/gallery/moments/</guid>
-      <description>元旦的海 除夕之列</description>
-    </item>
-    
-    <item>
-      <title>Ubuntu</title>
-      <link>/posts/ubuntu/</link>
-      <pubDate>Mon, 23 Nov 2020 21:30:32 +0800</pubDate>
-      
-      <guid>/posts/ubuntu/</guid>
-      <description>outline 硬件准备 clash on linux 开发环境搭建 硬件准备 灵越 7590 ， windows 系统盘 ssd + sn750 空盘 bios 中，把硬盘模式调到achi ， 关闭security boot ，关闭 windows 快速启动，打开le</description>
-    </item>
-    
-    <item>
-      <title>春梦的联想</title>
-      <link>/posts/springdream/</link>
-      <pubDate>Tue, 03 Mar 2020 20:02:36 +0800</pubDate>
-      
-      <guid>/posts/springdream/</guid>
-      <description>这个春日的午后 很温暖 窗外 每栋楼上，影子的边缘都格外清晰 不知名的鸟在空中盘旋 叽叽喳喳着 你躺在床上 确确实实感受到 春天的确来了 恍惚间 你好似回到了童</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/log/2021-26/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/log/2021-26/</guid>
-      <description>最近学了一些什么 BC golang Merkle Tree 实现 MPT 基本内容 zero knowledge proof rust intro English trying to restore my speaking traning cultivate some test resource of ielts 课内 完成了一个简单的miniRv 汇编实验 开始单周期cpu设计实验 dev</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blog · Jingyu Liu</title><link>https://vieloooo.github.io/</link><description>Jingyu Liu is a PhD student in Financial Technology at HKUST (Guangzhou), working on blockchain, mechanism design, and decentralized finance.</description><language>en-US</language><atom:link href="https://vieloooo.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>ChaumMian CoinJoin</title><link>https://vieloooo.github.io/posts/coinjoin/</link><guid>https://vieloooo.github.io/posts/coinjoin/</guid><pubDate>Thu, 26 Oct 2023 10:34:07 +0800</pubDate><description>&lt;ul&gt;
+&lt;li&gt;目标：构建一笔 bitcoin mixer 交易, 打乱 Inputs Outputs 的关联. &lt;img src="https://vieloooo.github.io/images/coinjoin/exp.png" alt="examples"&gt;&lt;/li&gt;
+&lt;li&gt;前置知识
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://en.bitcoin.it/wiki/CoinJoin"&gt;Coinjoin&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;UTXO&lt;/li&gt;
+&lt;li&gt;盲签名介绍：
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://mp.weixin.qq.com/s/gjmWhFVBpVrbW_wCd7UucA"&gt;https://mp.weixin.qq.com/s/gjmWhFVBpVrbW_wCd7UucA&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;UnBlind ( Sign( Blind(msg) ) ) = Sign(msg) &lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;参与者：
+&lt;ul&gt;
+&lt;li&gt;用户&lt;/li&gt;
+&lt;li&gt;coordinator: 一个无需信任的第三方&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;为了简单起见，假设池子的单位为 1 btc，全部使用 P2PKH 的方式进行转账。参与者 alice 想要自己的 addr1 的 tx ouput（大于 1btc ）当中转 1btc 到 bob 的地址 addr2 当中&lt;/li&gt;
+&lt;li&gt;过程
+&lt;ul&gt;
+&lt;li&gt;alice 使用某个匿名的网络 id1 连上 coordiantor（tor etc）&lt;/li&gt;
+&lt;li&gt;alice 向 coordiator 证明自己可以解锁一个未使用的 ouput（大于 1btc ）OP1
+&lt;ul&gt;
+&lt;li&gt;alice -&amp;gt; coordinator: 我拥有地址 addr1, 可以解锁 OP1 ( 使用 pk 就可以证明)&lt;/li&gt;
+&lt;li&gt;coordinator -&amp;gt; alice: 麻烦您签个名，我认证一下哈&lt;/li&gt;
+&lt;li&gt;alice -&amp;gt; coordinator: 签名消息&lt;/li&gt;
+&lt;li&gt;coordinator 验证成功&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;alice 向 coordiator 发送 bob 公钥的盲消息 &lt;strong&gt;M1&lt;/strong&gt; = &lt;code&gt;&amp;lt; Blind(Hash(addr2.pk)) &amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;coordinator 对 M1 直接签名，并向 alice 返回 签名消息：&lt;strong&gt;M2&lt;/strong&gt; = &lt;code&gt;Sign(Coordinator.sk, M1) &lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;coordinator 向当前池子 tx 的临时 outputs 当中加上一条对 alice 的找零 output
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;OP_DUP&lt;/code&gt; &lt;code&gt;OP_HASH160&lt;/code&gt; &lt;code&gt;&amp;lt;Hash(addr1.pk)&amp;gt;&lt;/code&gt; &lt;code&gt;OP_EQUALVERIFY&lt;/code&gt; &lt;code&gt;OP_CHECKSIG&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;alice 在 网络 id 1 下线，更换 id2 连上 coordinator（tor etc）&lt;/li&gt;
+&lt;li&gt;alice 对 M2 去盲得到 &lt;strong&gt;M3&lt;/strong&gt; =&lt;code&gt;Sign(Coordinator.sk, Hash(addr2.pk))&lt;/code&gt;,并把 &lt;strong&gt;M2&lt;/strong&gt; 和接收者的公钥哈希发送到 coordinator&lt;/li&gt;
+&lt;li&gt;coordinator 用自己的私钥验证，发现自己的确对这个接收者签了名&lt;/li&gt;
+&lt;li&gt;coordinator 向当前池子 tx 的临时 outputs 当中加上一条对 addr2 的 1btc 转账
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;OP_DUP&lt;/code&gt; &lt;code&gt;OP_HASH160&lt;/code&gt; &lt;code&gt;&amp;lt;Hash(addr2.pk)&amp;gt;&lt;/code&gt; &lt;code&gt;OP_EQUALVERIFY&lt;/code&gt; &lt;code&gt;OP_CHECKSIG&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;当 coordinator 发现池子足够大的时候把完整的 outputs 发给所有的该池子的用户，要求所有的参与者签名，锁住 outputs（此时 outputs 不会在添加了）&lt;/li&gt;
+&lt;li&gt;alice 从网络 id2 下线，更换 id3&lt;/li&gt;
+&lt;li&gt;alice 接收到了完成的 outputs， 作了个简单的算术，发现自己的两笔转账都在里面（一笔 1btc 给bob 的， 一笔找零给自己的）满意地签了名，把签名和自己的公钥（addr1.pk）发给 coordinator&lt;/li&gt;
+&lt;li&gt;coordinator 收集到了所有的签名，构建了所有的inputs ，把完整的 池子 tx 发送到 btc 网络上，完成交易&lt;/li&gt;
+&lt;li&gt;待交易确认之后，bob 可以向正常使用 P2PKH 一样使用 alice 的转过来的 1btc&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;匿名问题：有谁知道转移对？
+&lt;ul&gt;
+&lt;li&gt;alice：alice 作为发起人，当然知道&lt;/li&gt;
+&lt;li&gt;bob：如果bob 只知道链上的消息，bob不知道这笔钱是 alice 给转的。但是alice 和 bob 往往在链下有联系（要不然为什么要向bob 转账呢？除了&lt;a href="https://web3caff.com/zh/archives/26627%5D"&gt;投毒攻击&lt;/a&gt;，甚至往往可能是同一个人。&lt;/li&gt;
+&lt;li&gt;coordinator:coordinator 知道所有 input 对应的公钥. 由于 alice 使用两个不同的网络 id 发送 &lt;strong&gt;M1 M3&lt;/strong&gt;. coordinator 无法将 &lt;strong&gt;M1&lt;/strong&gt; 和&lt;strong&gt;M3&lt;/strong&gt; 关联起来，除非 coordinator 关联了 id。&lt;/li&gt;
+&lt;li&gt;混币池子里面其他的用户：无法知道其他的转移对，只知道完整的整个池子的转移&lt;/li&gt;
+&lt;li&gt;其他人：更加无从得知转移对。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;破解匿名的方法：
+&lt;ul&gt;
+&lt;li&gt;网络层面关联 id1 id2&lt;/li&gt;
+&lt;li&gt;coinjoin 常规攻击：在一个池子当中混入足够多的内鬼交易对（可以被攻击者知晓的交易对），可以暴露其他混币者的转移对。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;安全问题：
+&lt;ul&gt;
+&lt;li&gt;alice 怎样不会被 coordinator欺骗？
+&lt;ul&gt;
+&lt;li&gt;在整个交易过程当中，alice 只签名了两次
+&lt;ul&gt;
+&lt;li&gt;第一次签名用于证明了自己掌握了某个 output，过程与使用钱包 连接dapp的过程一致，签名消息都是明文。&lt;/li&gt;
+&lt;li&gt;第二次是对整个池子 coinjoin 进行签名，alice只要验证钱是否有足够的钱转到 bob 和自己的，就可以签名了。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;coordinator 怎样不被用户欺骗？
+&lt;ul&gt;
+&lt;li&gt;Coordinator 会对所有用户合格用户进行一个盲签。在我们举的例子当中，coordinator 会对所有 160 bit 的消息进行签名。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;混币池子里面其他的用户：无法知道其他的转移对，只知道完整的&lt;/li&gt;
+&lt;li&gt;盲签的安全性:
+&lt;ul&gt;
+&lt;li&gt;为了防止攻击者构造特殊的hash攻击让 coordinator 签名，盲签采用的签名方法应该与 btc 网络当中的签名方法完全不同，这样攻击者无法伪造 tx 签名。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;参考链接&lt;/p&gt;</description></item><item><title>Taproot Asset 快速上手体验</title><link>https://vieloooo.github.io/posts/taro/</link><guid>https://vieloooo.github.io/posts/taro/</guid><pubDate>Fri, 20 Oct 2023 10:34:07 +0800</pubDate><description>&lt;h2 id="参考学习"&gt;参考学习&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;taproot asset 介绍:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.btcstudy.org/2022/04/08/how-bitcoin-taro-protocol-works/"&gt;https://www.btcstudy.org/2022/04/08/how-bitcoin-taro-protocol-works/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.btcstudy.org/2022/04/07/announing-Taro-a-new-protocol-for-multi-asset-bitcoin-and-lightning/"&gt;https://www.btcstudy.org/2022/04/07/announing-Taro-a-new-protocol-for-multi-asset-bitcoin-and-lightning/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;taproot asset 文档
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://docs.lightning.engineering/the-lightning-network/taproot-assets"&gt;https://docs.lightning.engineering/the-lightning-network/taproot-assets&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;taproot asset demo
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=JNaryHu2mFc"&gt;https://www.youtube.com/watch?v=JNaryHu2mFc&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=xtklaJHfKIY"&gt;https://www.youtube.com/watch?v=xtklaJHfKIY&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="安装与配置"&gt;安装与配置&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;docker&lt;/li&gt;
+&lt;li&gt;docker compose/ docker desktop&lt;/li&gt;
+&lt;li&gt;polar:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/jamaljsr/polar"&gt;https://github.com/jamaljsr/polar&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;linux 下可能要注意 docker volume 没有权限读取的问题, &lt;code&gt;chmod chown&lt;/code&gt; 一下就行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;btc exporer
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://github.com/janoside/btc-rpc-explorer"&gt;https://github.com/janoside/btc-rpc-explorer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;主要用来看一下 bitcoin regtest 链上信息.&lt;/li&gt;
+&lt;li&gt;需要根据 bitcoin core node 的 rpc 相关信息配置一下 &lt;code&gt;.env&lt;/code&gt; 文件: &lt;img src="https://vieloooo.github.io/images/taro/btc_config.png" alt=""&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="简单的-mint-transfer-test"&gt;简单的 mint transfer test&lt;/h2&gt;
+&lt;p&gt;下面我将使用 Polar 测试 Taproot asset, 测试网络结构如下:&lt;img src="https://vieloooo.github.io/images/taro/struct.png" alt=""&gt;&lt;/p&gt;</description></item><item><title>当用户相信 Defi 与 传统金融服务具有相同的安全性时会发生什么?</title><link>https://vieloooo.github.io/posts/defi_censorship/</link><guid>https://vieloooo.github.io/posts/defi_censorship/</guid><pubDate>Tue, 17 Oct 2023 10:34:07 +0800</pubDate><description>&lt;blockquote&gt;
+&lt;p&gt;本文探讨的 defi 均是指基于账户模型智能合约形式 defi protocol: uniswap, aave, compound, maker dai 等.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;主流 defi 应用的合规化是不可避免的
+&lt;ul&gt;
+&lt;li&gt;当今主要的 defi 合约都部署在基于 PoS 相关算法的 L1 或是基于此类 L1 的 rollup 上
+&lt;ul&gt;
+&lt;li&gt;L1 质押中心化&lt;img src="https://vieloooo.github.io/images/defi_censorship/staking_share.png" alt="https://dune.com/hildobby/eth2-staking"&gt;&lt;/li&gt;
+&lt;li&gt;L1 结点的中心化&lt;img src="https://vieloooo.github.io/images/defi_censorship/eth_node_country.png" alt="https://etherscan.io/nodetracker"&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Defi 治理团体的实体化
+&lt;ul&gt;
+&lt;li&gt;例子:
+&lt;ul&gt;
+&lt;li&gt;Makerdao RWA&lt;/li&gt;
+&lt;li&gt;DAO as LLC at some states in the US&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;defi 本质是提供一种金融服务, 所有服务必然 Liable, 即服务的提供方必须对自己提供的服务负有责任.
+&lt;ul&gt;
+&lt;li&gt;在一个法治国家, 现实生活中所有的服务都是需要接受监管, 即使该服务是非盈利性质的.&lt;/li&gt;
+&lt;li&gt;监管是对&amp;quot;民众对服务安全性的要求&amp;quot;的共识的执行.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;前两点阐释了合规化的可实现原因, 最后一点实现了合规实现的动机&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;合规化/审查可能会发生在哪些层面?
+&lt;ul&gt;
+&lt;li&gt;Consensus Layer:
+&lt;ul&gt;
+&lt;li&gt;对 validator 的审核(比如 kyc);&lt;/li&gt;
+&lt;li&gt;对 p2p 网络的审核 (屏蔽某些地区的结点);&lt;/li&gt;
+&lt;li&gt;所有结点对交易进行一定审核(相当与一套对交易的共识规则);&lt;/li&gt;
+&lt;li&gt;配合监管方进行 fork, 类似 2016 The DAO Fork;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Execution Layer: 单个结点( sequenser, block builder&amp;hellip;) 对交易的审核&lt;/li&gt;
+&lt;li&gt;Protocol Layer: defi protocol 对交易进行审查&lt;/li&gt;
+&lt;li&gt;Frontend: UI 前端对交易进行审查&lt;img src="https://vieloooo.github.io/images/defi_censorship/makerdao_censor.png" alt="MakerDAO Sparking protocl ban US users and VPN"&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;那些实体有被监管的风险?
+&lt;ul&gt;
+&lt;li&gt;所有使用者&lt;/li&gt;
+&lt;li&gt;Governance Token 持有者&lt;/li&gt;
+&lt;li&gt;受雇佣于某个 DAO 的实体: 开发者, 律师, 交易员等等.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;如果要对 defi 达到传统金融服务相同的监管力度, 需要哪些层面的监管?
+&lt;ul&gt;
+&lt;li&gt;不幸的是, 如果我们仅仅思考现实世界 &amp;ldquo;银行经营需要政府颁发执业许可&amp;rdquo; 这一条要求, 就会发现我们需要在 consensus layer 实现审查. 具体来说, 制定一条如下的规则:
+&lt;ul&gt;
+&lt;li&gt;&amp;ldquo;审查每个上链的合约, 判断是否为银行合约(lending protocol like aave, compound&amp;hellip;), 如果是的话就要检查该合约是否合规&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;而&amp;quot;合规性检查&amp;quot;进一步会对该 protocol 的发行方进行审查(显然需要发行方进行 KYC)并要求该 protocol 满足反洗钱要求.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;悲观的看, 如果政府使用相同的监管力度约束 defi 服务, 那么 defi 寄生的链将会直接变成一条联盟链, 所有 defi 的用户都要进行 KYC.&lt;/li&gt;
+&lt;li&gt;幸运的是, 区块链在执行层上的无需信任性与透明性(或是可证明性在某些隐私链上)给予了 defi 更为宽松的监管力度, 使得 defi 可以在更低的审查力度下, 更低的监管成本下运行.
+&lt;ul&gt;
+&lt;li&gt;让我们再回顾一下政府(民选)监管的目的: 让民众感到安全. 这是一个非常主观的而且变化的指标.&lt;/li&gt;
+&lt;li&gt;面对一个每时每刻公开自己的账本的金融服务商(而且保证为真)和一个每年公开自己账本(还不知道增加)一次的服务商, 前者显然在更宽松的监管下可以给与后者一样安全感.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;总而言之, 相较于传统金融服务, &lt;strong&gt;defi protocol 依靠其无需信任性与透明性溢价, 换取了更为宽松的监管力度, 从而进一步换取在流动性与开放性的优势.&lt;/strong&gt; 至于能换来多少优势, 取决于到底要大多的监管力度才能让用户感到安全. 下面是几种可能的形态:&lt;/p&gt;</description></item><item><title>Byzantine Consensus under Static Peer Assumption</title><link>https://vieloooo.github.io/posts/byzanitne/</link><guid>https://vieloooo.github.io/posts/byzanitne/</guid><pubDate>Fri, 06 Oct 2023 10:34:07 +0800</pubDate><description>&lt;blockquote&gt;
+&lt;p&gt;Some notes for the book &amp;ldquo;Foundations of Distributed Consensus and Blockchains&amp;rdquo; by Elaine Shi&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;What is a Byzantine Fault?&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Crash Fault&lt;/strong&gt;: Adversarial nodes do not send or receive any messages.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Omission Fault&lt;/strong&gt;: Adversarial nodes selectively choose to drop or let through each message sent or received.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Byzantine Fault&lt;/strong&gt;: Adversarial nodes can deviate from the protocol arbitrarily.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;What is static assumption?&lt;/p&gt;</description></item><item><title>如何利用 zk-snark 解决 Mental Poker 问题</title><link>https://vieloooo.github.io/posts/mental_poker/</link><guid>https://vieloooo.github.io/posts/mental_poker/</guid><pubDate>Sun, 10 Sep 2023 10:34:07 +0800</pubDate><description>&lt;p&gt;最近读到了几篇很有意思的文章, 讨论的是如何解决 Mental Poker 问题.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Mental_poker"&gt;Mental poker 问题&lt;/a&gt; 是由 Rivest, Shamir and Adleman 三位密码学家于1979年提出 (就是 RSA 的那三位). 简单来讲, Mental Poker 问题可以理解为是在没有 &amp;ldquo;性感荷官&amp;rdquo; (一个 private 可信的第三方) 的场景下,进行扑克游戏. 下面的讨论我们将默认该 poker 游戏使用德州扑克的规则.&lt;/p&gt;</description></item><item><title>xv6 file system</title><link>https://vieloooo.github.io/posts/xv6-fs/</link><guid>https://vieloooo.github.io/posts/xv6-fs/</guid><pubDate>Fri, 01 Oct 2021 10:34:07 +0800</pubDate><description>&lt;h1 id="xv6-file-system-overview"&gt;xv6 File system overview&lt;/h1&gt;
+&lt;p&gt;In general, There are 3 different ascpect on unix-like file system, file descriptor, file/directory and block.
+In xv6, they are distributed into 7 layers:
+&lt;img src="https://vieloooo.github.io/images/cs/xv6-layer.png" alt=""&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="block-interface"&gt;Block interface&lt;/h2&gt;
+&lt;p&gt;The xv file system&amp;rsquo;s block interface consists of 34 layers(disk, buffer cache , logging and bitmap)
+&lt;strong&gt;Goal: achieve crash recovery&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>MIT xv6 design from user prespective</title><link>https://vieloooo.github.io/posts/xv6-lab1/</link><guid>https://vieloooo.github.io/posts/xv6-lab1/</guid><pubDate>Fri, 01 Oct 2021 10:34:07 +0800</pubDate><description>&lt;p&gt;I will use mit 6.s801 lab1 &amp;ldquo;util&amp;rdquo; as an entry to the code behind.
+This article will not talk much about how to do lab1, but reveal some delicate design behind the syscall lab1 use.&lt;/p&gt;</description></item><item><title>Ubuntu</title><link>https://vieloooo.github.io/posts/ubuntu/</link><guid>https://vieloooo.github.io/posts/ubuntu/</guid><pubDate>Mon, 23 Nov 2020 21:30:32 +0800</pubDate><description>&lt;h2 id="outline"&gt;outline&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;硬件准备&lt;/li&gt;
+&lt;li&gt;clash on linux&lt;/li&gt;
+&lt;li&gt;开发环境搭建&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="硬件准备"&gt;硬件准备&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;灵越 7590 ， windows 系统盘 ssd + sn750 空盘&lt;/li&gt;
+&lt;li&gt;bios 中，把硬盘模式调到achi ， 关闭security boot ，关闭 windows 快速启动，打开legency boot&lt;/li&gt;
+&lt;li&gt;插入ssd，windows中初始化硬盘，不分区&lt;/li&gt;
+&lt;li&gt;制作iso启动盘&lt;/li&gt;
+&lt;li&gt;进入bios，打开boot sequence ，把usb/boot//grub.efi加入boot 列表&lt;/li&gt;
+&lt;li&gt;f12， 引导选择，清空ssd sn750 ， 安装ubuntu&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="clash-on-linux-搭建"&gt;clash on linux 搭建&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;安装git vim ，解决raw.githubusercontent.com dns 污染问题（在hosts中加入ip）（更改为aliyun 的源）&lt;/li&gt;
+&lt;li&gt;安装 clash on linux ，解压tar&lt;/li&gt;
+&lt;li&gt;给clash 赋予对应权限&lt;/li&gt;
+&lt;li&gt;启动&lt;/li&gt;
+&lt;li&gt;找到.config/clash 中的config.yaml 和 country.mmdb 文件（前者为代理服务器文件，后者为ip分流文件）&lt;/li&gt;
+&lt;li&gt;从服务商获得yaml文件，和mmdb文件，替换原文件&lt;/li&gt;
+&lt;li&gt;clash 运行&lt;/li&gt;
+&lt;li&gt;打开clash.razord.top 进入控制面板（使用chrome 不要用firefox，firefox在会出现验证障碍）&lt;/li&gt;
+&lt;li&gt;把proxy 中继指向config.yaml对应端口（127.0.0.1:0000)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="环境配置"&gt;环境配置&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;zsh 配置（注意dns污染问题&lt;/p&gt;</description></item><item><title>春梦的联想</title><link>https://vieloooo.github.io/posts/springdream/</link><guid>https://vieloooo.github.io/posts/springdream/</guid><pubDate>Tue, 03 Mar 2020 20:02:36 +0800</pubDate><description>&lt;p&gt;这个春日的午后&lt;/p&gt;
+&lt;p&gt;很温暖&lt;/p&gt;
+&lt;p&gt;窗外&lt;/p&gt;
+&lt;p&gt;每栋楼上，影子的边缘都格外清晰&lt;/p&gt;
+&lt;p&gt;不知名的鸟在空中盘旋&lt;/p&gt;</description></item></channel></rss>
