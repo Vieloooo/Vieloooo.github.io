@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Defi · Jingyu Liu</title><link>https://vieloooo.github.io/tags/defi/</link><description>Jingyu Liu · PhD student in Financial Technology at HKUST (Guangzhou). Research in blockchain, mechanism design, and decentralized finance.</description><language>en-US</language><atom:link href="https://vieloooo.github.io/tags/defi/index.xml" rel="self" type="application/rss+xml"/><item><title>当用户相信 Defi 与 传统金融服务具有相同的安全性时会发生什么?</title><link>https://vieloooo.github.io/posts/defi_censorship/</link><guid>https://vieloooo.github.io/posts/defi_censorship/</guid><pubDate>Tue, 17 Oct 2023 10:34:07 +0800</pubDate><description>&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Defi · Jingyu Liu</title><link>https://jingyu.uk/tags/defi/</link><description>Jingyu Liu · PhD student in Financial Technology at HKUST (Guangzhou). Research in blockchain, mechanism design, and decentralized finance.</description><language>en-US</language><atom:link href="https://jingyu.uk/tags/defi/index.xml" rel="self" type="application/rss+xml"/><item><title>当用户相信 Defi 与 传统金融服务具有相同的安全性时会发生什么?</title><link>https://jingyu.uk/posts/defi_censorship/</link><guid>https://jingyu.uk/posts/defi_censorship/</guid><pubDate>Tue, 17 Oct 2023 10:34:07 +0800</pubDate><description>&lt;blockquote&gt;
 &lt;p&gt;本文探讨的 defi 均是指基于账户模型智能合约形式 defi protocol: uniswap, aave, compound, maker dai 等.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;ul&gt;
@@ -6,8 +6,8 @@
 &lt;ul&gt;
 &lt;li&gt;当今主要的 defi 合约都部署在基于 PoS 相关算法的 L1 或是基于此类 L1 的 rollup 上
 &lt;ul&gt;
-&lt;li&gt;L1 质押中心化&lt;img src="https://vieloooo.github.io/images/defi_censorship/staking_share.png" alt="https://dune.com/hildobby/eth2-staking"&gt;&lt;/li&gt;
-&lt;li&gt;L1 结点的中心化&lt;img src="https://vieloooo.github.io/images/defi_censorship/eth_node_country.png" alt="https://etherscan.io/nodetracker"&gt;&lt;/li&gt;
+&lt;li&gt;L1 质押中心化&lt;img src="https://jingyu.uk/images/defi_censorship/staking_share.png" alt="https://dune.com/hildobby/eth2-staking"&gt;&lt;/li&gt;
+&lt;li&gt;L1 结点的中心化&lt;img src="https://jingyu.uk/images/defi_censorship/eth_node_country.png" alt="https://etherscan.io/nodetracker"&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;Defi 治理团体的实体化
@@ -41,7 +41,7 @@
 &lt;/li&gt;
 &lt;li&gt;Execution Layer: 单个结点( sequenser, block builder&amp;hellip;) 对交易的审核&lt;/li&gt;
 &lt;li&gt;Protocol Layer: defi protocol 对交易进行审查&lt;/li&gt;
-&lt;li&gt;Frontend: UI 前端对交易进行审查&lt;img src="https://vieloooo.github.io/images/defi_censorship/makerdao_censor.png" alt="MakerDAO Sparking protocl ban US users and VPN"&gt;&lt;/li&gt;
+&lt;li&gt;Frontend: UI 前端对交易进行审查&lt;img src="https://jingyu.uk/images/defi_censorship/makerdao_censor.png" alt="MakerDAO Sparking protocl ban US users and VPN"&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;那些实体有被监管的风险?
